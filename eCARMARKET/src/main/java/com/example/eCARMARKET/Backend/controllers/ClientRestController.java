@@ -1,7 +1,6 @@
 package com.example.eCARMARKET.Backend.controllers;
 
 import com.example.eCARMARKET.Backend.models.Client;
-import com.example.eCARMARKET.Backend.models.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -12,6 +11,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -40,14 +41,16 @@ public class ClientRestController {
                     content = @Content
             )
     })
+
     @PostMapping("/client/")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Client> createMemberClient(@RequestBody Client client) {
         if (client.getType().equals("client")) {
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             Calendar c1 = Calendar.getInstance();
             int month = c1.get(Calendar.MONTH);
             client.setEntryDate(month);
-            setUserImage(client, new ClassPathResource("static/images/undraw_profile.jpg”).getPath()");
+            setClientImage(client, "static/images/undraw_profile.jpg”).getPath()");
             client.setEncodedPassword(passwordEncoder.encode(client.getEncodedPassword()));
             userService.save(client);
             URI location = fromCurrentRequest().path("/client/{id}")
@@ -58,7 +61,7 @@ public class ClientRestController {
         }
     }
 
-    private void setUserImage(Client client, String classpathResource){
+    private void setClientImage(Client client, String classpathResource){
         try {
             Resource image = new ClassPathResource(classpathResource);
             client.setImage("Default");

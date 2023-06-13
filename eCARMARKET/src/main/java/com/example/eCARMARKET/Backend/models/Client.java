@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Blob;
 
 @Entity
 public class Client {
@@ -28,6 +29,8 @@ public class Client {
     private int entryDate;
 
     private String image;
+
+    private Blob imageFile;
 
     public long getId() {
         return id;
@@ -98,6 +101,10 @@ public class Client {
     public String getImage() { return image; }
 
     public void setImage(String image) { this.image = image; }
+
+    public Blob getImageFile() { return imageFile; }
+
+    public void setImageFile(Blob imageFile) { this.imageFile = imageFile; }
 
     public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
         this.name = name;
