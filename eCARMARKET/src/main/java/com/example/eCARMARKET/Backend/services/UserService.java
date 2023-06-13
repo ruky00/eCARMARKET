@@ -1,6 +1,6 @@
 package com.example.eCARMARKET.Backend.services;
 
-import com.example.eCARMARKET.Backend.models.User;
+import com.example.eCARMARKET.Backend.models.Client;
 import com.example.eCARMARKET.Backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +13,15 @@ public class UserService {
    @Autowired
    private UserRepository userRepository;
 
-   public void save(User user){
+   public void save(Client user){
        userRepository.save(user);
    }
 
-   public Optional<User> findByEmail(String email){
+   public Optional<Client> findByEmail(String email){
        return userRepository.findByEmail(email);
    }
 
-   public Optional<User> findById(Long id){
+   public Optional<Client> findById(Long id){
        return userRepository.findById(id);
    }
 

@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-    public User(){}
+public class Client {
+    public Client(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -81,7 +81,7 @@ public class User {
         this.permission = permission;
     }
 
-    public User(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
+    public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
         this.name = name;
         this.surname = surname;
         this.email = email;
