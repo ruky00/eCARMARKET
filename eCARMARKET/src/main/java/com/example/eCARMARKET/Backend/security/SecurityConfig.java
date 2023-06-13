@@ -21,10 +21,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10, new SecureRandom());
     }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailService)
                 .passwordEncoder(passwordEncoder());
     }
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().anyRequest().permitAll();
+        http.formLogin().loginPage("/login");
+        http.formLogin().usernameParameter("email");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/");
+        http.formLogin().failureUrl("/loginError");
+    }
+
 }
