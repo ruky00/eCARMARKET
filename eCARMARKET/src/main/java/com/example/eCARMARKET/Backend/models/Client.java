@@ -8,7 +8,8 @@ import java.sql.Blob;
 
 @Entity
 public class Client {
-    public Client(){}
+    public Client() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,23 +91,39 @@ public class Client {
         this.permission = permission;
     }
 
-    public String getType() { return type; }
+    public String getType() {
+        return type;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-    public int getEntryDate() { return entryDate; }
+    public int getEntryDate() {
+        return entryDate;
+    }
 
-    public void setEntryDate(int entryDate) { this.entryDate = entryDate; }
+    public void setEntryDate(int entryDate) {
+        this.entryDate = entryDate;
+    }
 
-    public String getImage() { return image; }
+    public String getImage() {
+        return image;
+    }
 
-    public void setImage(String image) { this.image = image; }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-    public Blob getImageFile() { return imageFile; }
+    public Blob getImageFile() {
+        return imageFile;
+    }
 
-    public void setImageFile(Blob imageFile) { this.imageFile = imageFile; }
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
 
-    public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
+    public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -114,3 +131,4 @@ public class Client {
         this.permission = permission;
         this.encodedPassword = encodedPassword;
     }
+}
