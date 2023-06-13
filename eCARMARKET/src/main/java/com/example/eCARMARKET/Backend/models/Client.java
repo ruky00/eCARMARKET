@@ -23,6 +23,12 @@ public class Client {
 
     private boolean permission;
 
+    private String type;
+
+    private int entryDate;
+
+    private String image;
+
     public long getId() {
         return id;
     }
@@ -81,6 +87,18 @@ public class Client {
         this.permission = permission;
     }
 
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
+
+    public int getEntryDate() { return entryDate; }
+
+    public void setEntryDate(int entryDate) { this.entryDate = entryDate; }
+
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image = image; }
+
     public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
         this.name = name;
         this.surname = surname;
@@ -88,7 +106,4 @@ public class Client {
         this.occupation = occupation;
         this.permission = permission;
         this.encodedPassword = encodedPassword;
-
     }
-
-}
