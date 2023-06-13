@@ -51,6 +51,16 @@ public class User {
         return email;
     }
 
+    private String encodedPassword;
+
+    public String getEncodedPassword() {
+        return encodedPassword;
+    }
+
+    public void setEncodedPassword(String encodedPassword) {
+        this.encodedPassword = encodedPassword;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -71,12 +81,13 @@ public class User {
         this.permission = permission;
     }
 
-    public User(String name, String surname, String email, String occupation, boolean permission){
+    public User(String name, String surname, String email, String occupation, boolean permission, String encodedPassword){
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.occupation = occupation;
         this.permission = permission;
+        this.encodedPassword = encodedPassword;
 
     }
 
