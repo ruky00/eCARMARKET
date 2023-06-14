@@ -25,8 +25,7 @@ public class Client {
 
     private boolean permission;
 
-
-    private String image;
+    private boolean isEnabled;
 
     private Blob imageFile;
 
@@ -88,12 +87,12 @@ public class Client {
         this.permission = permission;
     }
 
-    public String getImage() {
-        return image;
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
     public Blob getImageFile() {

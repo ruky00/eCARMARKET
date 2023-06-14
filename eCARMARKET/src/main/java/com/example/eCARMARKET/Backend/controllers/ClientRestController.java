@@ -65,15 +65,15 @@ public class ClientRestController {
         }
     }
 
-    private void setClientImage(Client client, String classpathResource){
-        try {
-            Resource image = new ClassPathResource(classpathResource);
-            client.setImage("Default");
-            client.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
+    //private void setClientImage(Client client, String classpathResource){
+       // try {
+        //    Resource image = new ClassPathResource(classpathResource);
+        //    client.setImage("Default");
+         //   client.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+      //  } catch(Exception e){
+      //      System.out.println(e.getMessage());
+      //  }
+   // }
 
     //GET USER INFO
     @Operation(summary = "Get user logged in the application")

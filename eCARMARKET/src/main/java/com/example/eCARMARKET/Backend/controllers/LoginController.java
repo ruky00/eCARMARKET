@@ -24,7 +24,6 @@ public class LoginController {
             @RequestBody LoginRequest loginRequest) {
         return userService.login(loginRequest, accessToken, refreshToken);
     }
-
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponse> refreshToken(
             @CookieValue(name = "refreshToken", required = false) String refreshToken) {
