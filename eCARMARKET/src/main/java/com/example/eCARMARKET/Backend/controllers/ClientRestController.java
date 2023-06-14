@@ -25,6 +25,7 @@ import java.util.Optional;
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @RestController
+@RequestMapping("/api")
 public class ClientRestController {
 
     @Autowired
@@ -56,7 +57,7 @@ public class ClientRestController {
         try{
         client.setEncodedPassword(passwordEncoder.encode(client.getEncodedPassword()));
         userService.save(client);
-        URI location = fromCurrentRequest().path("/client/{id}")
+        URI location = fromCurrentRequest().path("/clients/{id}")
                 .buildAndExpand(client.getId()).toUri();
         return ResponseEntity.created(location).body(client);}
         catch (Exception e){
