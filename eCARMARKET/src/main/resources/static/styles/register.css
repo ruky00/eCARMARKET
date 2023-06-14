@@ -1,0 +1,12 @@
+.centered {
+    flex-direction: column;
+    font-size: 25px;
+}
+
+.centered input {
+    width: 150%;
+}
+
+.centered button[type="submit"] {
+    margin-top: 20px;
+}
