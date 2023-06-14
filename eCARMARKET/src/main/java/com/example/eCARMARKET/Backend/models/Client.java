@@ -25,9 +25,6 @@ public class Client {
 
     private boolean permission;
 
-    private String type;
-
-    private int entryDate;
 
     private String image;
 
@@ -89,22 +86,6 @@ public class Client {
 
     public void setPermission(boolean permission) {
         this.permission = permission;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(int entryDate) {
-        this.entryDate = entryDate;
     }
 
     public String getImage() {

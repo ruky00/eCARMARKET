@@ -45,14 +45,6 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.antMatcher("/api/**");
-
-        // URLs that need authentication to access to it
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/books/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN");
-
         // Other URLs can be accessed without authentication
         http.authorizeRequests().anyRequest().permitAll();
 
