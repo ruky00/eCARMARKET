@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto Mono');
+@import url('https://fonts.googleapis.com/css?family=Oxygen Mono');
+
+:root {
+    /* Blue Colors */
+    --half-baked-50: #F4F8FB;
+    --half-baked-100: #E8F1F6;
+    --half-baked-200: #CBE3EC;
+    --half-baked-300: #9DCBDC;
+    --half-baked-400: #7DBACF;
+    --half-baked-500: #4596B2;
+    --half-baked-600: #347995;
+    --half-baked-700: #2B6179;
+    --half-baked-800: #275265;
+    --half-baked-900: #254555;
+    --half-baked-950: #182E39;
+
+    /* Green-Yellow Colors */
+    --corn-field-50: #FBFDE8;
+    --corn-field-100: #F4FACD;
+    --corn-field-200: #EDF7B5;
+    --corn-field-300: #D6EC6A;
+    --corn-field-400: #C1DE3D;
+    --corn-field-500: #A3C41E;
+    --corn-field-600: #7F9C14;
+    --corn-field-700: #5F7714;
+    --corn-field-800: #4D5E16;
+    --corn-field-900: #415017;
+    --corn-field-950: #212C07;
+
+    /* Fonts */
+    --titles: "Roboto Mono";
+    --text: "Oxygen Mono";
+}
