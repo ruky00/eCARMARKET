@@ -63,14 +63,14 @@ footer #button-arrow img {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 50px;
 }
 
 .cards div {
-    height: 400px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     background-color: var(--half-baked-800);
     border-radius: 50px;
 }

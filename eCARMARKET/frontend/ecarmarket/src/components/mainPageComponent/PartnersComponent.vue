@@ -1,10 +1,11 @@
 <template>
     <div id="partners-section">
-        <h2>A solution for Investors, Analysts and Industry Leaders</h2>
-        <div class="cards">
-            <div id="card1"><img src="../../assets/tesla.png" alt="Tesla Logo"></div>
-            <div id="card2"><img src="../../assets/tesla.png" alt="BYD Logo"></div>
-            <div id="card3"><img src="../../assets/tesla.png" alt="Cupra Logo"></div>
+        <h2>PARTNER COMPANIES</h2>
+        <div class="images">
+            <img src="../../assets/tesla.png" alt="Tesla Logo">
+            <img src="../../assets/byd1.png" alt="BYD Logo" style="height: 200px;">
+            <img src="../../assets/cupra.png" alt="Cupra Logo" style="height: 300px;">
+            
         </div>
     </div>
 </template>
@@ -21,44 +22,28 @@ export default{
 @import "@/assets/variables.css";
 
 #partners-section {
-    height: 800px;
+    height: 10%;
     background-color: var(--half-baked-300);    
     justify-content: center
 }
 
 h2{
-    font-size: 1.5em;
+    font-size: 2.5em;
     color: var(--corn-field-100);
     font-family: var(--titles);
     display: flex;
     justify-content:center;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
+.images{
     width: 100%;
-    margin-top: 50px;
-}
-
-.cards div img{
-    height: 400px;
-    width: 500px;
-    background-color: var(--half-baked-800);
-    border-radius: 50px;
-}
-
-.cards div img{
-    height: 50px;
-    width: 50px;
-}
-
-#card2 {
-    display: flex;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-
+.images img{
+    width: 400px;
+    height: 400px;
+}
 </style>
