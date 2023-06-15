@@ -2,6 +2,7 @@
 
     <header>
         <a href="/"><img class="logo" src="../../assets/logo.jpg" alt="Logo"></a>
+        <SearchBarComponent/>
             <nav>
                 <div class="links">
                     <a href="/">Link 1</a>
@@ -17,9 +18,13 @@
 </template>
 
 <script>
+import SearchBarComponent from './SearchBarComponent.vue';
 
 export default{
-    name: 'HeaderComponent'
+    name: 'HeaderComponent',
+    components:{
+    SearchBarComponent,
+}
 }
 
 </script>

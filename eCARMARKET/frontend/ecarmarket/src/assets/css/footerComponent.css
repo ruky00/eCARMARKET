@@ -1,12 +1,13 @@
 @import "../variables.css";
 footer {
-    height: 800px;
+    height: 100%;
     background-color: var(--half-baked-950);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: var(--corn-field-100);
+    padding-top: 50px;
 }
 
 footer h2 {
