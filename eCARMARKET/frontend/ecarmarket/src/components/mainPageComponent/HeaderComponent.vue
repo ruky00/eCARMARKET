@@ -25,40 +25,5 @@ export default{
 </script>
 
 <style>
-@import "@/assets/variables.css";
-header{
-    height: 70px;
-    background-color: var(--half-baked-600);
-    display: flex;
-    padding: 20px 20px 0px 20px;
-    justify-content: space-between;
-    position: sticky;
-
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 700px;
-}
-a {
-    text-decoration: none;
-    color: black;
-    font-size: xx-large;
-}
-
-a:hover {
-    color: #444;
-}
-
-.logo {
-    height: 80px;
-}
-
-.links {
-    display: flex;
-    gap: 30px
-}
-
+@import '@/assets/css/headerComponent.css';
 </style>

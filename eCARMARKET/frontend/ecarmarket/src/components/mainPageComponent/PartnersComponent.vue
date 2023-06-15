@@ -19,31 +19,7 @@ export default{
 </script>
 
 <style>
-@import "@/assets/variables.css";
+@import "@/assets/css/partnersComponent.css";
 
-#partners-section {
-    height: 10%;
-    background-color: var(--half-baked-300);    
-    justify-content: center
-}
 
-h2{
-    font-size: 2.5em;
-    color: var(--corn-field-100);
-    font-family: var(--titles);
-    display: flex;
-    justify-content:center;
-}
-
-.images{
-    width: 100%;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.images img{
-    width: 400px;
-    height: 400px;
-}
 </style>
