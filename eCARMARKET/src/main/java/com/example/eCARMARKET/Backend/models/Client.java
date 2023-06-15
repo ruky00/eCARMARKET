@@ -8,9 +8,6 @@ import java.sql.Blob;
 
 @Entity
 public class Client {
-    public Client() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

@@ -8,9 +8,6 @@ import java.util.List;
 
 @Entity
 public class Profile {
-    public Profile(){
-    }
-
     @Id
     private Client client;
 

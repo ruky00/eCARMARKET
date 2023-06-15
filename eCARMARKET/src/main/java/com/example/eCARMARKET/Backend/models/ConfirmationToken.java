@@ -6,7 +6,6 @@ import java.util.UUID;
 
 @Entity
 public class ConfirmationToken {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="token_id")
