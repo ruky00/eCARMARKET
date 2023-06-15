@@ -1,9 +1,6 @@
 package com.example.eCARMARKET.Backend.models;
 
-import com.example.eCARMARKET.Backend.models.aux.Ask;
-import com.example.eCARMARKET.Backend.models.aux.Bid;
-import com.example.eCARMARKET.Backend.models.aux.DateRange;
-import com.example.eCARMARKET.Backend.models.aux.ValueRange;
+import com.example.eCARMARKET.Backend.models.aux.*;
 import net.bytebuddy.agent.builder.AgentBuilder;
 
 import javax.persistence.Entity;
@@ -34,7 +31,7 @@ public class Stock {
 
     private int averageVolume;
 
-    private String marketCapitalization;
+    private ValueWithUnit marketCapitalization;
 
     private double beta5YMonthly;
 
@@ -92,9 +89,9 @@ public class Stock {
 
     public void setAverageVolume(int averageVolume) { this.averageVolume = averageVolume; }
 
-    public String getMarketCapitalization() { return marketCapitalization; }
+    public String getMarketCapitalization() { return marketCapitalization.toString(); }
 
-    public void setMarketCapitalization(String marketCapitalization) { this.marketCapitalization = marketCapitalization; }
+    public void setMarketCapitalization(ValueWithUnit marketCapitalization) { this.marketCapitalization = marketCapitalization; }
 
     public double getBeta5YMonthly() { return beta5YMonthly; }
 
@@ -130,7 +127,7 @@ public class Stock {
 
     public Stock(String id, String commercialName, double previousClose, double open,
                  Bid bid, Ask ask, ValueRange daysRange, ValueRange fiftyTwoWeeksRange,
-                 int volume, int averageVolume, String marketCapitalization,
+                 int volume, int averageVolume, ValueWithUnit marketCapitalization,
                  double beta5YMonthly, double peRatio, double eps, DateRange earningsDate,
                  String forwardAndDividendYield, String exDividendDate, double oneYTargetEst,
                  List<HistoricalData> historicalData) {
