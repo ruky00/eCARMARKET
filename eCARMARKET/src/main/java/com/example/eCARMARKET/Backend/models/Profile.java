@@ -19,11 +19,11 @@ public class Profile {
 
     private List<String> newsTopics;
 
-    public Client getClient(){ return this.client; }
+    public Client getClient(){ return client; }
 
     public void setClient(Client client){ this.client = client; }
 
-    public List<Stock> getStocks(){ return this.stocks; }
+    public List<Stock> getStocks(){ return stocks; }
 
     public void setStocks(List<Stock> stocks){ this.stocks = stocks; }
 
@@ -31,7 +31,7 @@ public class Profile {
 
     public void removeStock(String stockToRemove){ this.stocks.remove(stockToRemove); }
 
-    public List<String> getMarkets(){ return this.markets; }
+    public List<String> getMarkets(){ return markets; }
 
     public void setMarkets(List<String> markets){ this.markets = markets; }
 
@@ -39,7 +39,7 @@ public class Profile {
 
     public void removeMarket(String marketToRemove){ this.markets.remove(marketToRemove); }
 
-    public List<String> getGlobalInformation(){ return this.globalInformation; }
+    public List<String> getGlobalInformation(){ return globalInformation; }
 
     public void setGlobalInformation(List<String> globalInformation){ this.globalInformation = globalInformation; }
 
@@ -47,7 +47,7 @@ public class Profile {
 
     public void removeGlobalInformation(String globalInformationToRemove){ this.globalInformation.remove(globalInformationToRemove); }
 
-    public List<String> getNewsTopics(){ return this.newsTopics; }
+    public List<String> getNewsTopics(){ return newsTopics; }
 
     public void setNewsTopics(List<String> newsTopics){ this.newsTopics = newsTopics; }
 
@@ -55,15 +55,15 @@ public class Profile {
 
     public void removeNewsTopic(String newsTopicToRemove){ this.newsTopics.remove(newsTopicToRemove); }
 
-    public String getClientName(){ return this.client.getName(); }
+    public String getClientName(){ return client.getName(); }
 
-    public String getClientSurname(){ return this.client.getSurname(); }
+    public String getClientSurname(){ return client.getSurname(); }
 
-    public String getClientEmail(){ return this.client.getEmail(); }
+    public String getClientEmail(){ return client.getEmail(); }
 
-    public String getClientOccupation(){ return this.client.getOccupation(); }
+    public String getClientOccupation(){ return client.getOccupation(); }
 
-    public Blob getClientImage(){ return this.client.getImageFile(); }
+    public Blob getClientImage(){ return client.getImageFile(); }
 
     public Profile(Client client){
         this.client = client;

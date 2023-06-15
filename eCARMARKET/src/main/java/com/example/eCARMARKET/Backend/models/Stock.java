@@ -46,7 +46,7 @@ public class Stock {
 
     private double oneYTargetEst;
 
-    private List<String> historicalData;
+    private List<HistoricalData> historicalData;
 
     public String getId() { return id; }
 
@@ -120,16 +120,16 @@ public class Stock {
 
     public void setOneYTargetEst(double oneYTargetEst) { this.oneYTargetEst = oneYTargetEst; }
 
-    public List<String> getHistoricalData() { return historicalData; }
+    public List<HistoricalData> getHistoricalData() { return historicalData; }
 
-    public void setHistoricalData(List<String> historicalData) { this.historicalData = historicalData; }
+    public void setHistoricalData(List<HistoricalData> historicalData) { this.historicalData = historicalData; }
 
     public Stock(String id, String commercialName, double previousClose, double open,
                  String bid, String ask, String daysRange, String fiftyTwoWeeksRange,
                  int volume, int averageVolume, String marketCapitalization,
                  double beta5YMonthly, double peRatio, double eps, String earningsDate,
                  String forwardAndDividendYield, String exDividendDate, double oneYTargetEst,
-                 List<String> historicalData) {
+                 List<HistoricalData> historicalData) {
         this.id = id;
         this.commercialName = commercialName;
         this.previousClose = previousClose;
