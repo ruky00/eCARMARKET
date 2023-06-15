@@ -1,0 +1,15 @@
+.spacer {
+    aspect-ratio: 900/200;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#firstToSecond {
+    background-image: url("../../assets/images/waves/firstToSecondSection.svg");
+}
+
+#secondToThird {
+    background-image: url("../../assets/images/waves/secondToThirdSection.svg");
+}

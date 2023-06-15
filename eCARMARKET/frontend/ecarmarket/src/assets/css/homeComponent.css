@@ -1,4 +1,3 @@
-@import "../variables.css";
 #first-section {
     height: 500px;
     background-color: var(--half-baked-600);
@@ -54,15 +53,4 @@
 
 #button-arrow img:hover {
     cursor: pointer;
-}
-.spacer {
-    aspect-ratio: 900/200;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-#firstToSecond {
-    background-image: url("../../assets/waves/firstToSecondSection.svg");
 }

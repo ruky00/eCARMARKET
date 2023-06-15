@@ -1,7 +1,7 @@
 <template>
 
     <header>
-        <a href="/"><img class="logo" src="../../assets/logo.jpg" alt="Logo"></a>
+        <a href="/"><img class="logo" src="../../assets/images/logo.jpg" alt="Logo"></a>
         <SearchBarComponent/>
             <nav>
                 <div class="links">
@@ -11,7 +11,7 @@
                     <a href="/">Link 4</a>
                 </div>
                 <div class="user">
-                    <a href="/login"><img class="logo" src="../../assets/user.png" alt="User"></a>
+                    <a href="/login"><img class="logo" src="../../assets/images/user.png" alt="User"></a>
                 </div>
             </nav>
     </header>

@@ -1,7 +1,6 @@
-@import "../variables.css";
 #partners-section {
     height: 10%;
-    background-color: var(--half-baked-300);    
+    background-color: var(--half-baked-600);    
     justify-content: center
 }
 

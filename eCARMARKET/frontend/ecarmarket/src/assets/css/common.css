@@ -1,0 +1,11 @@
+html, body {
+    margin: 0px
+}
+
+html {
+    font-family: var(--text);
+}
+
+button:hover {
+    cursor: pointer;
+}

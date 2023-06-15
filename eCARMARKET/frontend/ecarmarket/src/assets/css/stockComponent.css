@@ -1,0 +1,12 @@
+#second-section {
+    height: 800px;
+    background-color: var(--half-baked-300);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+#second-section h2 {
+    font-size: 40px;
+    color: var(--corn-field-100);
+}
