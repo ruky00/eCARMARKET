@@ -11,7 +11,7 @@ public class Profile {
     @Id
     private Client client;
 
-    private List<String> stocks;
+    private List<Stock> stocks;
 
     private List<String> markets;
 
@@ -23,11 +23,11 @@ public class Profile {
 
     public void setClient(Client client){ this.client = client; }
 
-    public List<String> getStocks(){ return this.stocks; }
+    public List<Stock> getStocks(){ return this.stocks; }
 
-    public void setStocks(List<String> stocks){ this.stocks = stocks; }
+    public void setStocks(List<Stock> stocks){ this.stocks = stocks; }
 
-    public void addStock(String newStock) { this.stocks.add(newStock); }
+    public void addStock(Stock newStock) { this.stocks.add(newStock); }
 
     public void removeStock(String stockToRemove){ this.stocks.remove(stockToRemove); }
 
@@ -67,13 +67,13 @@ public class Profile {
 
     public Profile(Client client){
         this.client = client;
-        this.stocks = new ArrayList<String>();
+        this.stocks = new ArrayList<Stock>();
         this.markets = new ArrayList<String>();
         this.globalInformation = new ArrayList<String>();
         this.newsTopics = new ArrayList<String>();
     }
 
-    public Profile(Client client, List<String> stocks, List<String> markets,
+    public Profile(Client client, List<Stock> stocks, List<String> markets,
                    List<String> globalInformation, List<String> newsTopics){
         this.client = client;
         this.stocks = stocks;
