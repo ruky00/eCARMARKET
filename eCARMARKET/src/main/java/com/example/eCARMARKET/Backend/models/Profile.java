@@ -13,7 +13,7 @@ public class Profile {
 
     private List<Stock> stocks;
 
-    private List<String> markets;
+    private List<Market> markets;
 
     private List<String> globalInformation;
 
@@ -31,13 +31,13 @@ public class Profile {
 
     public void removeStock(String stockToRemove){ this.stocks.remove(stockToRemove); }
 
-    public List<String> getMarkets(){ return markets; }
+    public List<Market> getMarkets(){ return markets; }
 
-    public void setMarkets(List<String> markets){ this.markets = markets; }
+    public void setMarkets(List<Market> markets){ this.markets = markets; }
 
-    public void addMarket(String newMarket) { this.markets.add(newMarket); }
+    public void addMarket(Market newMarket) { this.markets.add(newMarket); }
 
-    public void removeMarket(String marketToRemove){ this.markets.remove(marketToRemove); }
+    public void removeMarket(Market marketToRemove){ this.markets.remove(marketToRemove); }
 
     public List<String> getGlobalInformation(){ return globalInformation; }
 
@@ -68,12 +68,12 @@ public class Profile {
     public Profile(Client client){
         this.client = client;
         this.stocks = new ArrayList<Stock>();
-        this.markets = new ArrayList<String>();
+        this.markets = new ArrayList<Market>();
         this.globalInformation = new ArrayList<String>();
         this.newsTopics = new ArrayList<String>();
     }
 
-    public Profile(Client client, List<Stock> stocks, List<String> markets,
+    public Profile(Client client, List<Stock> stocks, List<Market> markets,
                    List<String> globalInformation, List<String> newsTopics){
         this.client = client;
         this.stocks = stocks;
