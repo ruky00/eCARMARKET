@@ -1,3 +1,5 @@
+/* FIRST SECTION */
+
 #first-section {
     height: 800px;
     background-color: var(--half-baked-600);
@@ -23,7 +25,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 700px;
+    width: 35%;
 }
 
 .links {
@@ -103,25 +105,19 @@ a:hover {
     border-radius: 50px;
 }
 
-.intro button:hover {
-    cursor: pointer;
-}
-
 #button-arrow {
     background-color: var(--half-baked-900);
     border: none;
     position: relative;
-    left: 100px;
-    bottom: 53px;
-    width: 30px;
     padding: 0px;
 }
 
-#button-arrow:hover {
-    cursor: pointer;
+.intro #button-arrow {
+    left: 100px;
+    bottom: 53px;
 }
 
-#button-arrow img {
+.intro #button-arrow img {
     height: 30px;
 }
 
@@ -129,7 +125,67 @@ a:hover {
     cursor: pointer;
 }
 
+
+/* SECOND SECTION */
+
 #second-section {
     height: 800px;
     background-color: var(--half-baked-300);
 } 
+
+
+/* FOOTER */
+
+footer {
+    height: 800px;
+    background-color: var(--half-baked-950);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--corn-field-100);
+}
+
+footer h2 {
+    font-family: var(--titles);
+}
+
+footer button {
+    font-size: 1.5em;
+    color: var(--corn-field-100);
+    background-color: var(--half-baked-900);
+    border: none;
+    padding: 10px 60px 10px 25px;
+    border-radius: 50px;
+}
+
+footer #button-arrow {
+    left: 65px;
+    bottom: 37px;
+}
+
+footer #button-arrow img {
+    height: 20px;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cards div {
+    height: 400px;
+    width: 500px;
+    background-color: var(--half-baked-800);
+    border-radius: 50px;
+}
+
+#card2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
