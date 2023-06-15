@@ -1,5 +1,7 @@
 package com.example.eCARMARKET.Backend.models;
 
+import com.example.eCARMARKET.Backend.models.aux.Ask;
+import com.example.eCARMARKET.Backend.models.aux.Bid;
 import net.bytebuddy.agent.builder.AgentBuilder;
 
 import javax.persistence.Entity;
@@ -18,9 +20,9 @@ public class Stock {
 
     private double open;
 
-    private String bid;
+    private Bid bid;
 
-    private String ask;
+    private Ask ask;
 
     private String daysRange;
 
@@ -64,13 +66,13 @@ public class Stock {
 
     public void setOpen(double open) { this.open = open; }
 
-    public String getBid() { return bid; }
+    public String getBid() { return bid.toString(); }
 
-    public void setBid(String bid) { this.bid = bid; }
+    public void setBid(Bid bid) { this.bid = bid; }
 
-    public String getAsk() { return ask; }
+    public String getAsk() { return ask.toString(); }
 
-    public void setAsk(String ask) { this.ask = ask; }
+    public void setAsk(Ask ask) { this.ask = ask; }
 
     public String getDaysRange() { return daysRange; }
 
@@ -125,7 +127,7 @@ public class Stock {
     public void setHistoricalData(List<HistoricalData> historicalData) { this.historicalData = historicalData; }
 
     public Stock(String id, String commercialName, double previousClose, double open,
-                 String bid, String ask, String daysRange, String fiftyTwoWeeksRange,
+                 Bid bid, Ask ask, String daysRange, String fiftyTwoWeeksRange,
                  int volume, int averageVolume, String marketCapitalization,
                  double beta5YMonthly, double peRatio, double eps, String earningsDate,
                  String forwardAndDividendYield, String exDividendDate, double oneYTargetEst,
