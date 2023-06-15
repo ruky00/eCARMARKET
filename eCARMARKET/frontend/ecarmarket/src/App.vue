@@ -1,17 +1,23 @@
 <template>  
     <HeaderComponent/>
      <HomeComponent/>
+     <PartnersComponent/>
+     <FooterComponent/>
 </template>
 
 <script>
 import HeaderComponent from './components/mainPageComponent/HeaderComponent.vue'
 import HomeComponent from './components/mainPageComponent/HomeComponent.vue'
+import FooterComponent from './components/mainPageComponent/FooterComponent.vue'
+import PartnersComponent from './components/mainPageComponent/PartnersComponent.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent,
+    PartnersComponent
   }
 };
 
@@ -19,13 +25,5 @@ export default {
 </script>
 
 <style>
-#app {
-  display: block;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align:center;
-  color: #2c6e50;
-}
 
 </style>
