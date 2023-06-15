@@ -2,6 +2,8 @@ package com.example.eCARMARKET.Backend.models;
 
 import com.example.eCARMARKET.Backend.models.aux.Ask;
 import com.example.eCARMARKET.Backend.models.aux.Bid;
+import com.example.eCARMARKET.Backend.models.aux.DateRange;
+import com.example.eCARMARKET.Backend.models.aux.ValueRange;
 import net.bytebuddy.agent.builder.AgentBuilder;
 
 import javax.persistence.Entity;
@@ -24,9 +26,9 @@ public class Stock {
 
     private Ask ask;
 
-    private String daysRange;
+    private ValueRange daysRange;
 
-    private String fiftyTwoWeeksRange;
+    private ValueRange fiftyTwoWeeksRange;
 
     private int volume;
 
@@ -40,7 +42,7 @@ public class Stock {
 
     private double eps;
 
-    private String earningsDate;
+    private DateRange earningsDate;
 
     private String forwardAndDividendYield;
 
@@ -74,13 +76,13 @@ public class Stock {
 
     public void setAsk(Ask ask) { this.ask = ask; }
 
-    public String getDaysRange() { return daysRange; }
+    public String getDaysRange() { return daysRange.toString(); }
 
-    public void setDaysRange(String daysRange) { this.daysRange = daysRange; }
+    public void setDaysRange(ValueRange daysRange) { this.daysRange = daysRange; }
 
-    public String getFiftyTwoWeeksRange() { return fiftyTwoWeeksRange; }
+    public String getFiftyTwoWeeksRange() { return fiftyTwoWeeksRange.toString(); }
 
-    public void setFiftyTwoWeeksRange(String fiftyTwoWeeksRange) { this.fiftyTwoWeeksRange = fiftyTwoWeeksRange; }
+    public void setFiftyTwoWeeksRange(ValueRange fiftyTwoWeeksRange) { this.fiftyTwoWeeksRange = fiftyTwoWeeksRange; }
 
     public int getVolume() { return volume; }
 
@@ -106,9 +108,9 @@ public class Stock {
 
     public void setEps(double eps) { this.eps = eps; }
 
-    public String getEarningsDate() { return earningsDate; }
+    public String getEarningsDate() { return earningsDate.toString(); }
 
-    public void setEarningsDate(String earningsDate) { this.earningsDate = earningsDate; }
+    public void setEarningsDate(DateRange earningsDate) { this.earningsDate = earningsDate; }
 
     public String getForwardAndDividendYield() { return forwardAndDividendYield; }
 
@@ -127,9 +129,9 @@ public class Stock {
     public void setHistoricalData(List<HistoricalData> historicalData) { this.historicalData = historicalData; }
 
     public Stock(String id, String commercialName, double previousClose, double open,
-                 Bid bid, Ask ask, String daysRange, String fiftyTwoWeeksRange,
+                 Bid bid, Ask ask, ValueRange daysRange, ValueRange fiftyTwoWeeksRange,
                  int volume, int averageVolume, String marketCapitalization,
-                 double beta5YMonthly, double peRatio, double eps, String earningsDate,
+                 double beta5YMonthly, double peRatio, double eps, DateRange earningsDate,
                  String forwardAndDividendYield, String exDividendDate, double oneYTargetEst,
                  List<HistoricalData> historicalData) {
         this.id = id;
