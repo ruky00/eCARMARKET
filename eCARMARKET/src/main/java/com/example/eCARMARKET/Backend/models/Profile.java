@@ -2,7 +2,6 @@ package com.example.eCARMARKET.Backend.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class Profile {
 
     private List<Market> markets;
 
-    private List<String> globalInformation;
+    private List<GlobalDataSection> globalDataSections;
 
     private List<String> newsTopics;
 
@@ -39,13 +38,13 @@ public class Profile {
 
     public void removeMarket(Market marketToRemove){ this.markets.remove(marketToRemove); }
 
-    public List<String> getGlobalInformation(){ return globalInformation; }
+    public List<GlobalDataSection> getGlobalInformation(){ return globalDataSections; }
 
-    public void setGlobalInformation(List<String> globalInformation){ this.globalInformation = globalInformation; }
+    public void setGlobalInformation(List<GlobalDataSection> globalInformation){ this.globalDataSections = globalInformation; }
 
-    public void addGlobalInformation(String newGlobalInformation) { this.globalInformation.add(newGlobalInformation); }
+    public void addGlobalInformation(GlobalDataSection newGlobalInformation) { this.globalDataSections.add(newGlobalInformation); }
 
-    public void removeGlobalInformation(String globalInformationToRemove){ this.globalInformation.remove(globalInformationToRemove); }
+    public void removeGlobalInformation(GlobalDataSection globalInformationToRemove){ this.globalDataSections.remove(globalInformationToRemove); }
 
     public List<String> getNewsTopics(){ return newsTopics; }
 
@@ -55,30 +54,20 @@ public class Profile {
 
     public void removeNewsTopic(String newsTopicToRemove){ this.newsTopics.remove(newsTopicToRemove); }
 
-    public String getClientName(){ return client.getName(); }
-
-    public String getClientSurname(){ return client.getSurname(); }
-
-    public String getClientEmail(){ return client.getEmail(); }
-
-    public String getClientOccupation(){ return client.getOccupation(); }
-
-    public Blob getClientImage(){ return client.getImageFile(); }
-
     public Profile(Client client){
         this.client = client;
         this.stocks = new ArrayList<Stock>();
         this.markets = new ArrayList<Market>();
-        this.globalInformation = new ArrayList<String>();
+        this.globalDataSections = new ArrayList<GlobalDataSection>();
         this.newsTopics = new ArrayList<String>();
     }
 
     public Profile(Client client, List<Stock> stocks, List<Market> markets,
-                   List<String> globalInformation, List<String> newsTopics){
+                   List<GlobalDataSection> globalDataSections, List<String> newsTopics){
         this.client = client;
         this.stocks = stocks;
         this.markets = markets;
-        this.globalInformation = globalInformation;
+        this.globalDataSections = globalDataSections;
         this.newsTopics = newsTopics;
     }
 
