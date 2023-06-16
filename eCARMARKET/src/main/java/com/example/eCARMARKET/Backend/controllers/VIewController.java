@@ -16,4 +16,22 @@ public class VIewController {
         return "register";
     }
 
+    @GetMapping("/profile")
+    public String profile() { return "profile"; }
+
+    @GetMapping("/stocks")
+    public String stocks() { return "stocks"; }
+
+    @GetMapping("/markets")
+    public String markets() { return "markets"; }
+
+    @GetMapping("/global-data")
+    public String globalData() { return "global-data"; }
+
+    @GetMapping("/news")
+    public String news() { return "news"; }
+
+    @GetMapping("/your-feed")
+    public String yourFeed() { return "your-feed"; }
+
 }
