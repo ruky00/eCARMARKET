@@ -4,6 +4,7 @@ import com.example.eCARMARKET.Backend.models.aux.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity

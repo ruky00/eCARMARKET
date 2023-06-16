@@ -1,7 +1,7 @@
 package com.example.eCARMARKET.Backend.controllers;
 
 import com.example.eCARMARKET.Backend.models.Client;
-import com.example.eCARMARKET.Backend.services.UserService;
+import com.example.eCARMARKET.Backend.services.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,7 +25,7 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 public class ClientRestController {
 
     @Autowired
-    private UserService userService;
+    private ClientService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
