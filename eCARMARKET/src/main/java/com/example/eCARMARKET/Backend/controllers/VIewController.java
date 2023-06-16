@@ -15,4 +15,5 @@ public class VIewController {
     public String register() {
         return "register";
     }
+
 }
