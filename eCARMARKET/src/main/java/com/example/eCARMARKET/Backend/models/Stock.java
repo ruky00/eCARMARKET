@@ -1,7 +1,6 @@
 package com.example.eCARMARKET.Backend.models;
 
 import com.example.eCARMARKET.Backend.models.aux.*;
-import net.bytebuddy.agent.builder.AgentBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

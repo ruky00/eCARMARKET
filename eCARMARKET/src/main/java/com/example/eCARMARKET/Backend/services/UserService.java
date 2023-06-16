@@ -1,7 +1,7 @@
 package com.example.eCARMARKET.Backend.services;
 
 import com.example.eCARMARKET.Backend.models.Client;
-import com.example.eCARMARKET.Backend.repositories.UserRepository;
+import com.example.eCARMARKET.Backend.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 public class UserService {
 
    @Autowired
-   private UserRepository userRepository;
+   private ClientRepository userRepository;
 
    public void save(Client user){
        userRepository.save(user);

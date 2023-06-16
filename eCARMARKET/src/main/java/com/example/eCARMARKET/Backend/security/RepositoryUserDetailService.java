@@ -1,7 +1,7 @@
 package com.example.eCARMARKET.Backend.security;
 
 import com.example.eCARMARKET.Backend.models.Client;
-import com.example.eCARMARKET.Backend.repositories.UserRepository;
+import com.example.eCARMARKET.Backend.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,7 @@ import java.util.List;
 public class RepositoryUserDetailService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository userRepository;
 
 
     @Override

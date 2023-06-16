@@ -1,12 +1,10 @@
-package com.example.eCARMARKET.Backend.models;
+package com.example.eCARMARKET.Backend.models.aux;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
-
-@Entity
 public class HistoricalData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
