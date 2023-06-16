@@ -1,5 +1,5 @@
 #first-section {
-    height: 500px;
+    height: 800px;
     background-color: var(--half-baked-600);
     display: flex;
 }
@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 30px;
     color: var(--corn-field-100);
     width: 100%;
 }
@@ -18,6 +19,11 @@
     font-family: var(--titles);
     font-size: 4em;
     text-align: center;
+}
+
+.start-here {
+    display: flex;
+    align-items: center;
 }
 
 .intro button {
@@ -37,8 +43,7 @@
     background-color: var(--half-baked-900);
     border: none;
     position: relative;
-    left: 100px;
-    bottom: 53px;
+    right: 45px;
     width: 30px;
     padding: 0px;
 }

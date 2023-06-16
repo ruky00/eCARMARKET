@@ -1,7 +1,8 @@
 #partners-section {
     height: 10%;
     background-color: var(--half-baked-600);    
-    justify-content: center
+    justify-content: center;
+    padding-bottom: 50px;
 }
 
 h2{
@@ -16,8 +17,9 @@ h2{
     width: 100%;
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    gap: 50px;
 }
 .images img{
     width: 400px;

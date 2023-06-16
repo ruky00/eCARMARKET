@@ -4,9 +4,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 } 
 
 #second-section h2 {
     font-size: 40px;
+    font-family: var(--titles);
     color: var(--corn-field-100);
+}
+
+#second-section .stocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#second-section .focused {
+    height: 400px;
+    transition: .5s;
+    z-index: 1;
+}
+
+#second-section .not-focused {
+    height: 250px;
+    filter: brightness(50%);
+    transition: .5s
+}
+
+.stocks #s1{
+    position:relative;
+    left: 100px;
+}
+
+.stocks #s3{
+    position:relative;
+    right: 100px;
 }
