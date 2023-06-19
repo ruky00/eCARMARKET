@@ -21,13 +21,13 @@
 }
 
 #second-section .focused {
-    height: 400px;
+    height: 20vw;
     transition: .5s;
     z-index: 1;
 }
 
 #second-section .not-focused {
-    height: 250px;
+    height: 10vw;
     filter: brightness(50%);
     transition: .5s
 }

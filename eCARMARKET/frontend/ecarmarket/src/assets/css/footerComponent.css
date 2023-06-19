@@ -19,7 +19,6 @@ footer .footer-middel {
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-
 }
 
 footer h2 {
@@ -46,11 +45,13 @@ footer #button-arrow img {
 
 footer .left {
     width: 15%;
+    min-width: 219px;
 }
 
 footer .right {
     display: flex;
     width: 35%;
+    min-width: 400px;
     justify-content: space-around;
 }
 
