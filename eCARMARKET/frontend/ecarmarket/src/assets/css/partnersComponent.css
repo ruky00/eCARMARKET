@@ -36,7 +36,7 @@ h2{
   }
   
   .card {
-    background: #22222287;
+    background: transparent;
     border-radius: 50px 0;
     cursor: default;
     height: 340px;
