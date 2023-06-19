@@ -1,13 +1,19 @@
 package com.example.eCARMARKET.Backend.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Profile {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private Client client;
 
     private List<Stock> stocks;
