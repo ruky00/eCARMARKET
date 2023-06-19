@@ -30,5 +30,5 @@ export default{
 </script>
 
 <style>
-@import '@/assets/css/headerComponent.css';
+@import '@/assets/css/mainPageCSS/headerComponent.css';
 </style>

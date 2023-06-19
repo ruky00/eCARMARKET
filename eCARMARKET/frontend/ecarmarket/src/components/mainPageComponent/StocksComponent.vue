@@ -28,5 +28,5 @@
 </script>
 
 <style>
-    @import "@/assets/css/stockComponent.css";
+    @import "@/assets/css/mainPageCSS/stockComponent.css";
 </style>

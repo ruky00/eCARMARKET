@@ -14,5 +14,5 @@ export default{
 </script>
 
 <style>
-@import '../../assets/css/searchbarComponent.css';
+@import '../../assets/css/mainPageCSS/searchbarComponent.css';
 </style>

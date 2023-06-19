@@ -37,5 +37,5 @@ export default{
 </script>
 
 <style>
-@import '@/assets/css/footerComponent.css';
+@import '@/assets/css/mainPageCSS/footerComponent.css';
 </style>

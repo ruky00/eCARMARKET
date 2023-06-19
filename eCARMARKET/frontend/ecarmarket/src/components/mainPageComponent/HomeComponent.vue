@@ -19,5 +19,5 @@
 </script>
 
 <style>
-@import "@/assets/css/homeComponent.css";
+@import "@/assets/css/mainPageCSS/homeComponent.css";
 </style>

@@ -55,7 +55,7 @@ export default{
 </script>
 
 <style>
-@import "@/assets/css/partnersComponent.css";
+@import "@/assets/css/mainPageCSS/partnersComponent.css";
 
 
 </style>

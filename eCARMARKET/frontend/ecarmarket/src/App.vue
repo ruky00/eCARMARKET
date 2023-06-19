@@ -30,5 +30,5 @@ export default {
 <style>
 @import "./assets/css/variables.css";
 @import "./assets/css/common.css";
-@import "./assets/css/waves.css";
+@import "./assets/css/mainPageCSS/waves.css";
 </style>
