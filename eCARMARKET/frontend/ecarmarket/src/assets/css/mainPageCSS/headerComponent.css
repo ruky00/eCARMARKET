@@ -11,8 +11,10 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 700px;
+    width: fit-content;
+    padding-left: 20px;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -30,4 +32,23 @@ a:hover {
 .links {
     display: flex;
     gap: 30px
+}
+
+.user {
+    padding-left: 20px;
+    height: 60px;
+}
+
+.user img {
+    height: 60px;
+}
+
+@media screen and (max-width: 1200px){        
+    .links{
+       display: none;
+    }
+
+    nav {
+        justify-content: flex-end;
+    }
 }
