@@ -13,15 +13,146 @@ h2{
     justify-content:center;
 }
 
-.images{
-    width: 100%;
-    display:flex;
+.boxesContainer{
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-    gap: 50px;
+    align-items: flex-end;
+    align-content: center;
 }
-.images img{
-    width: 400px;
-    height: 400px;
-}
+
+.cardBox {
+    float: left;
+    font-size: 1.2em;
+    margin: 1% 0 0 1%;
+    perspective: 800px;
+    transition: all 0.3s ease 0s;
+    width: 23.7%;
+    margin-top: 10px;
+  }
+  
+  .cardBox:hover .card {
+    transform: rotateY( 180deg);
+  }
+  
+  .card {
+    background: #22222287;
+    border-radius: 50px 0;
+    cursor: default;
+    height: 340px;
+    width: 340px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease 0s;
+    padding: 0;
+    -webkit-animation: giro 1s 1;
+    animation: giro 1s 1;
+  }
+  
+  .card p {
+    margin-bottom: 1.8em;
+  }
+  
+  .card .front,
+  .card .back {
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    color: white;
+    display: block;
+    font-size: 1.2em;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .card .back {
+    transform: rotateY( 180deg);
+  }
+  
+  .card .back a {
+    padding: 0.3em 0.5em;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1px;
+    font-size: 0.9em;
+    transition: all 0.2s ease 0s;
+  }
+  
+  .card .back a:hover {
+    background: #fff;
+    color: #333;
+    text-shadow: 0 0 1px #333;
+  }
+  .cardBox:nth-child(1) .card .back {
+    background: #22222287;
+    border-radius: 0 50px;
+  }
+  
+  .cardBox:nth-child(2) .card .back {
+    background: #22222287;
+    border-radius: 0 50px;
+  }
+  
+  .cardBox:nth-child(3) .card .back {
+    background: #22222287;
+    border-radius: 0 50px;
+  }
+  
+  
+  
+  .cardBox:nth-child(2) .card {
+    -webkit-animation: giro 1.5s 1;
+    animation: giro 1.5s 1;
+  }
+  
+  .cardBox:nth-child(3) .card {
+    -webkit-animation: giro 2s 1;
+    animation: giro 2s 1;
+  }
+  
+  .cardBox:nth-child(4) .card {
+    -webkit-animation: giro 2.5s 1;
+    animation: giro 2.5s 1;
+  }
+  
+  @-webkit-keyframes giro {
+    from {
+      transform: rotateY( 180deg);
+    }
+    to {
+      transform: rotateY( 0deg);
+    }
+  }
+  
+  @keyframes giro {
+    from {
+      transform: rotateY( 180deg);
+    }
+    to {
+      transform: rotateY( 0deg);
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .cardBox {
+      margin-left: 2.8%;
+      margin-top: 3%;
+      width: 46%;
+    }
+    .card {
+      height: 285px;
+    }
+    .cardBox:last-child {
+      margin-bottom: 3%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cardBox {
+      width: 94.5%;
+    }
+    .card {
+      height: 260px;
+    }
+  }
