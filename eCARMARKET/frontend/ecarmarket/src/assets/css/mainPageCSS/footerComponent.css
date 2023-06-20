@@ -36,7 +36,11 @@ footer button {
 }
 
 footer #button-arrow {
-    right: 45px;
+    width: 0px;
+    background-color: transparent;
+    position: relative;
+    bottom: 45px;
+    left: 120px;
 }
 
 footer #button-arrow img {

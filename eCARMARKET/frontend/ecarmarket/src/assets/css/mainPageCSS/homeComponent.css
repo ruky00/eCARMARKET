@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 
-#button-arrow {
+.intro #button-arrow {
     background-color: var(--half-baked-900);
     border: none;
     position: relative;
@@ -64,14 +64,14 @@
     padding: 0px;
 }
 
-#button-arrow:hover {
+.intro #button-arrow:hover {
     cursor: pointer;
 }
 
-#button-arrow img {
+.intro #button-arrow img {
     height: 30px;
 }
 
-#button-arrow img:hover {
+.intro #button-arrow img:hover {
     cursor: pointer;
 }
