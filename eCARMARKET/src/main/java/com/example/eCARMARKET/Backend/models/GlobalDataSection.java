@@ -9,17 +9,17 @@ public class GlobalDataSection {
     @Id
     private String sectionName;
 
-    private Object info;
+    private String info;
 
     public String getSectionName() { return sectionName; }
 
     public void setSectionName(String sectionName) { this.sectionName = sectionName; }
 
-    public Object getInfo() { return info; }
+    public String getInfo() { return info; }
 
-    public void setInfo(Object info) { this.info = info; }
+    public void setInfo(String info) { this.info = info; }
 
-    public GlobalDataSection(String sectionName, Object info){
+    public GlobalDataSection(String sectionName, String info){
         this.sectionName = sectionName;
         this.info = info;
     }

@@ -14,9 +14,9 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private Client client;
+    private String clientEmail;
 
-    private List<Stock> stocks;
+    private List<String> stocks;
 
     private List<Market> markets;
 
@@ -24,15 +24,15 @@ public class Profile {
 
     private List<String> newsTopics;
 
-    public Client getClient(){ return client; }
+    public String getClientEmail(){ return clientEmail; }
 
-    public void setClient(Client client){ this.client = client; }
+    public void setClientEmail(String clientEmail){ this.clientEmail = clientEmail; }
 
-    public List<Stock> getStocks(){ return stocks; }
+    public List<String> getStocks(){ return stocks; }
 
-    public void setStocks(List<Stock> stocks){ this.stocks = stocks; }
+    public void setStocks(List<String stocks){ this.stocks = stocks; }
 
-    public void addStock(Stock newStock) { this.stocks.add(newStock); }
+    public void addStock(String newStock) { this.stocks.add(newStock); }
 
     public void removeStock(String stockToRemove){ this.stocks.remove(stockToRemove); }
 
@@ -60,17 +60,17 @@ public class Profile {
 
     public void removeNewsTopic(String newsTopicToRemove){ this.newsTopics.remove(newsTopicToRemove); }
 
-    public Profile(Client client){
-        this.client = client;
-        this.stocks = new ArrayList<Stock>();
+    public Profile(String clientEmail){
+        this.clientEmail = clientEmail;
+        this.stocks = new ArrayList<String>();
         this.markets = new ArrayList<Market>();
         this.globalDataSections = new ArrayList<GlobalDataSection>();
         this.newsTopics = new ArrayList<String>();
     }
 
-    public Profile(Client client, List<Stock> stocks, List<Market> markets,
+    public Profile(String clientEmail, List<String> stocks, List<Market> markets,
                    List<GlobalDataSection> globalDataSections, List<String> newsTopics){
-        this.client = client;
+        this.clientEmail = clientEmail;
         this.stocks = stocks;
         this.markets = markets;
         this.globalDataSections = globalDataSections;

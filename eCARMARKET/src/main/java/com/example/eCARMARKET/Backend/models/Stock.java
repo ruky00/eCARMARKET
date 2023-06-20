@@ -5,6 +5,7 @@ import com.example.eCARMARKET.Backend.models.aux.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,25 +14,27 @@ public class Stock {
     @Id
     private String id;
 
+    private Date date;
+
     private String commercialName;
 
     private double previousClose;
 
     private double open;
 
-    private Bid bid;
+    private String bid;
 
-    private Ask ask;
+    private String ask;
 
-    private ValueRange daysRange;
+    private String daysRange;
 
-    private ValueRange fiftyTwoWeeksRange;
+    private String fiftyTwoWeeksRange;
 
     private int volume;
 
     private int averageVolume;
 
-    private ValueWithUnit marketCapitalization;
+    private String marketCapitalization;
 
     private double beta5YMonthly;
 
@@ -39,15 +42,13 @@ public class Stock {
 
     private double eps;
 
-    private DateRange earningsDate;
+    private String earningsDate;
 
     private String forwardAndDividendYield;
 
     private String exDividendDate;
 
     private double oneYTargetEst;
-
-    private List<HistoricalData> historicalData;
 
     /**
      * Returns the id, which is the specific acronym for the company in
@@ -57,6 +58,15 @@ public class Stock {
     public String getId() { return id; }
 
     public void setId(String id) { this.id = id; }
+
+    /**
+     * Returns the date of the stock data
+     * @return Date class object that contains
+     * the date of the stock data
+     */
+    public Date getDate() { return date; }
+
+    public void setDate(Date date) { this.date = date; }
 
     /**
      * Returns the commercial name of the company
@@ -94,9 +104,9 @@ public class Stock {
      * will pay to buy a specified number of shares of a stock
      * at anu given time
      */
-    public String getBid() { return bid.toString(); }
+    public String getBid() { return bid; }
 
-    public void setBid(Bid bid) { this.bid = bid; }
+    public void setBid(String bid) { this.bid = bid; }
 
     /**
      * Returns the lowest price at which a seller will sell a
@@ -104,9 +114,9 @@ public class Stock {
      * @return String that contains the lowest price at which
      * a seller will sell a specified number of stocks
      */
-    public String getAsk() { return ask.toString(); }
+    public String getAsk() { return ask; }
 
-    public void setAsk(Ask ask) { this.ask = ask; }
+    public void setAsk(String ask) { this.ask = ask; }
 
     /**
      * Highest and lowest price of the security for the
@@ -114,9 +124,9 @@ public class Stock {
      * @return String that contains the highest and the lowest
      * price of the security for the current day
      */
-    public String getDaysRange() { return daysRange.toString(); }
+    public String getDaysRange() { return daysRange; }
 
-    public void setDaysRange(ValueRange daysRange) { this.daysRange = daysRange; }
+    public void setDaysRange(String daysRange) { this.daysRange = daysRange; }
 
     /**
      * Highest and lowest price of the security for the
@@ -124,9 +134,9 @@ public class Stock {
      * @return String that contains the highest and the
      * lowest price of the security for the last 52 weeks
      */
-    public String getFiftyTwoWeeksRange() { return fiftyTwoWeeksRange.toString(); }
+    public String getFiftyTwoWeeksRange() { return fiftyTwoWeeksRange; }
 
-    public void setFiftyTwoWeeksRange(ValueRange fiftyTwoWeeksRange) { this.fiftyTwoWeeksRange = fiftyTwoWeeksRange; }
+    public void setFiftyTwoWeeksRange(String fiftyTwoWeeksRange) { this.fiftyTwoWeeksRange = fiftyTwoWeeksRange; }
 
     /**
      * Returns the number of shares of the company
@@ -154,9 +164,9 @@ public class Stock {
      * @return String that contains the market capitalization
      * of the company
      */
-    public String getMarketCapitalization() { return marketCapitalization.toString(); }
+    public String getMarketCapitalization() { return marketCapitalization; }
 
-    public void setMarketCapitalization(ValueWithUnit marketCapitalization) { this.marketCapitalization = marketCapitalization; }
+    public void setMarketCapitalization(String marketCapitalization) { this.marketCapitalization = marketCapitalization; }
 
     /**
      * Returns the volatility of the stock. It measures how much
@@ -195,9 +205,9 @@ public class Stock {
      * @return String that contains the release date of
      * the company's earnings
      */
-    public String getEarningsDate() { return earningsDate.toString(); }
+    public String getEarningsDate() { return earningsDate; }
 
-    public void setEarningsDate(DateRange earningsDate) { this.earningsDate = earningsDate; }
+    public void setEarningsDate(String earningsDate) { this.earningsDate = earningsDate; }
 
     /**
      * Returns the number of dividends to be received
@@ -232,23 +242,13 @@ public class Stock {
 
     public void setOneYTargetEst(double oneYTargetEst) { this.oneYTargetEst = oneYTargetEst; }
 
-    /**
-     * Returns the historical data about the stock
-     * @return List of HistoricalData class objects
-     * that contains the historical data about the
-     * stock
-     */
-    public List<HistoricalData> getHistoricalData() { return historicalData; }
-
-    public void setHistoricalData(List<HistoricalData> historicalData) { this.historicalData = historicalData; }
-
-    public Stock(String id, String commercialName, double previousClose, double open,
-                 Bid bid, Ask ask, ValueRange daysRange, ValueRange fiftyTwoWeeksRange,
-                 int volume, int averageVolume, ValueWithUnit marketCapitalization,
-                 double beta5YMonthly, double peRatio, double eps, DateRange earningsDate,
-                 String forwardAndDividendYield, String exDividendDate, double oneYTargetEst,
-                 List<HistoricalData> historicalData) {
+    public Stock(String id, Date date, String commercialName, double previousClose, double open,
+                 String bid, String ask, String daysRange, String fiftyTwoWeeksRange,
+                 int volume, int averageVolume, String marketCapitalization,
+                 double beta5YMonthly, double peRatio, double eps, String earningsDate,
+                 String forwardAndDividendYield, String exDividendDate, double oneYTargetEst) {
         this.id = id;
+        this.date = date;
         this.commercialName = commercialName;
         this.previousClose = previousClose;
         this.open = open;
@@ -266,6 +266,5 @@ public class Stock {
         this.forwardAndDividendYield = forwardAndDividendYield;
         this.exDividendDate = exDividendDate;
         this.oneYTargetEst = oneYTargetEst;
-        this.historicalData = historicalData;
     }
 }

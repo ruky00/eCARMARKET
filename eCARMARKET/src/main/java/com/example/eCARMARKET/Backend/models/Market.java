@@ -8,17 +8,17 @@ public class Market {
     @Id
     private String countryName;
 
-    private Object info;
+    private String info;
 
     public String getCountryName() { return countryName; }
 
     public void setCountryName(String countryName) { this.countryName = countryName; }
 
-    public Object getInfo() { return info; }
+    public String getInfo() { return info; }
 
-    public void setInfo(Object info) { this.info = info; }
+    public void setInfo(String info) { this.info = info; }
 
-    public Market(String countryName, Object info) {
+    public Market(String countryName, String info) {
         this.countryName = countryName;
         this.info = info;
     }
