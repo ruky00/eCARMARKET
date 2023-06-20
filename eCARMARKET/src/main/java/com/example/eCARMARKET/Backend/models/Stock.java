@@ -1,12 +1,8 @@
 package com.example.eCARMARKET.Backend.models;
 
-import com.example.eCARMARKET.Backend.models.aux.*;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.text.DecimalFormat;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Stock {

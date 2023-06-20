@@ -16,65 +16,52 @@ public class Profile {
 
     private String clientEmail;
 
-    private List<String> stocks;
+    private String stocks;
 
-    private List<Market> markets;
+    private String markets;
 
-    private List<GlobalDataSection> globalDataSections;
+    private String globalDataSections;
 
-    private List<String> newsTopics;
+    private String newsTopics;
 
     public String getClientEmail(){ return clientEmail; }
 
     public void setClientEmail(String clientEmail){ this.clientEmail = clientEmail; }
 
-    public List<String> getStocks(){ return stocks; }
+    public String getStocks(){ return stocks; }
 
-    public void setStocks(List<String> stocks){ this.stocks = stocks; }
+    public void setStocks(String stocks){ this.stocks = stocks; }
 
-    public void addStock(String newStock) { this.stocks.add(newStock); }
+    public void addStock(String newStock) { this.stocks += "_" + newStock; }
 
-    public void removeStock(String stockToRemove){ this.stocks.remove(stockToRemove); }
+    public void removeStock(String stockToRemove){ this.stocks.replace(stockToRemove, ""); }
 
-    public List<Market> getMarkets(){ return markets; }
+    public String getMarkets(){ return markets; }
 
-    public void setMarkets(List<Market> markets){ this.markets = markets; }
+    public void setMarkets(String markets){ this.markets = markets; }
 
-    public void addMarket(Market newMarket) { this.markets.add(newMarket); }
+    public void addMarket(String newMarket) { this.markets += "_" + newMarket; }
 
-    public void removeMarket(Market marketToRemove){ this.markets.remove(marketToRemove); }
+    public void removeMarket(String marketToRemove){ this.markets.replace(marketToRemove, ""); }
 
-    public List<GlobalDataSection> getGlobalInformation(){ return globalDataSections; }
+    public String getGlobalInformation(){ return globalDataSections; }
 
-    public void setGlobalInformation(List<GlobalDataSection> globalInformation){ this.globalDataSections = globalInformation; }
+    public void setGlobalInformation(String globalInformation){ this.globalDataSections = globalInformation; }
 
-    public void addGlobalInformation(GlobalDataSection newGlobalInformation) { this.globalDataSections.add(newGlobalInformation); }
+    public void addGlobalInformation(String newGlobalInformation) { this.globalDataSections += "_" + newGlobalInformation; }
 
-    public void removeGlobalInformation(GlobalDataSection globalInformationToRemove){ this.globalDataSections.remove(globalInformationToRemove); }
+    public void removeGlobalInformation(String globalInformationToRemove){ this.globalDataSections.replace(globalInformationToRemove, ""); }
 
-    public List<String> getNewsTopics(){ return newsTopics; }
+    public String getNewsTopics(){ return newsTopics; }
 
-    public void setNewsTopics(List<String> newsTopics){ this.newsTopics = newsTopics; }
+    public void setNewsTopics(String newsTopics){ this.newsTopics = newsTopics; }
 
-    public void addNewsTopic(String newNewsTopic) { this.newsTopics.add(newNewsTopic); }
+    public void addNewsTopic(String newNewsTopic) { this.newsTopics += "_" + newNewsTopic; }
 
-    public void removeNewsTopic(String newsTopicToRemove){ this.newsTopics.remove(newsTopicToRemove); }
+    public void removeNewsTopic(String newsTopicToRemove){ this.newsTopics.replace(newsTopicToRemove, ""); }
 
     public Profile(String clientEmail){
         this.clientEmail = clientEmail;
-        this.stocks = new ArrayList<String>();
-        this.markets = new ArrayList<Market>();
-        this.globalDataSections = new ArrayList<GlobalDataSection>();
-        this.newsTopics = new ArrayList<String>();
-    }
-
-    public Profile(String clientEmail, List<String> stocks, List<Market> markets,
-                   List<GlobalDataSection> globalDataSections, List<String> newsTopics){
-        this.clientEmail = clientEmail;
-        this.stocks = stocks;
-        this.markets = markets;
-        this.globalDataSections = globalDataSections;
-        this.newsTopics = newsTopics;
     }
 
 }
