@@ -12,6 +12,7 @@
       </label>
       <button class="submit" type="button">Sign In</button>
       <p class="forgot-pass">Forgot Password ?</p>
+    <router-link to="/" style="text-decoration: none;"><p class="forgot-pass">Go back home</p></router-link> 
     </div>
 
     <div class="sub-cont">
