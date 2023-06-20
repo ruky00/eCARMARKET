@@ -1,6 +1,6 @@
 <template>
 
-    <header>
+    <header id="sticky-header" @scroll="headerScroll">
         <a href="/"><img class="logo" src="../../assets/images/logo.jpg" alt="Logo"></a>
         <SearchBarComponent/>
             <nav>
@@ -23,8 +23,20 @@ import SearchBarComponent from './SearchBarComponent.vue';
 export default{
     name: 'HeaderComponent',
     components:{
-    SearchBarComponent,
-}
+        SearchBarComponent,
+    },
+    mounted () {
+        window.addEventListener('scroll', this.headerScroll);
+    },
+    methods: {
+        headerScroll() {
+            if (window.pageYOffset > 5)
+                document.getElementById('sticky-header').classList.add("header-color");
+
+            else
+                document.getElementById('sticky-header').classList.remove("header-color");
+        }
+    }
 }
 
 </script>

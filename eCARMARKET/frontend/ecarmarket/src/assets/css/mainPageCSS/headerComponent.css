@@ -1,10 +1,24 @@
 header{
     height: 100px;
-    background-color: var(--half-baked-600);
     display: flex;
-    padding: 20px 20px 0px 20px;
+    background-color: transparent;
+    padding: 20px;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: calc(100% - 40px); /* 40px = Total padding on sides */
+    z-index: 2;
+    transition: 1s;
+}
+
+.header-color {
+    background-color: var(--half-baked-900);
+    transition: .5s;
+}
+
+.header-color .user {
+    background-color: var(--half-baked-300);
+    transition: 1s;
 }
 
 nav {
@@ -15,14 +29,14 @@ nav {
     padding-left: 20px;
 }
 
-a {
+ nav a {
     text-decoration: none;
-    color: black;
+    color: var(--corn-field-100);
     font-size: xx-large;
 }
 
 a:hover {
-    color: #444;
+    color: var(--corn-field-500);
 }
 
 .logo {
@@ -35,8 +49,11 @@ a:hover {
 }
 
 .user {
-    padding-left: 20px;
+    margin-left: 20px;
+    padding: 10px;
     height: 60px;
+    border-radius: 50%;
+    transition: 1s;
 }
 
 .user img {

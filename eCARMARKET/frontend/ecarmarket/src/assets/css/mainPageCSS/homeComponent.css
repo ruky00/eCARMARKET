@@ -2,6 +2,7 @@
     height: 800px;
     background-color: var(--half-baked-600);
     display: flex;
+    padding-top: 100px;
 }
 
 .intro {
@@ -27,7 +28,7 @@
 }
 
 .intro button {
-    font-size: 2.5em;
+    font-size: 2em;
     color: var(--corn-field-100);
     background-color: var(--half-baked-900);
     border: none;
@@ -43,6 +44,8 @@
     background-color: var(--half-baked-900);
     border: none;
     position: relative;
+    display: flex;
+    
     right: 45px;
     width: 30px;
     padding: 0px;
