@@ -3,8 +3,21 @@
     background-color: var(--half-baked-600);
     display: flex;
     padding-top: 100px;
+    animation: animateBackground 10s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--half-baked-300), var(--half-baked-600),var(--half-baked-900));
+    background-size: 200% 200%;
 }
-
+@keyframes animateBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 .intro {
     display: flex;
     align-items: center;
