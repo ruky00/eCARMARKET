@@ -2,7 +2,7 @@ header{
     height: 100px;
     display: flex;
     background-color: transparent;
-    padding: 20px;
+    padding: 10px 20px 10px 20px;
     justify-content: space-between;
     align-items: center;
     position: fixed;
@@ -51,13 +51,13 @@ a:hover {
 .user {
     margin-left: 20px;
     padding: 10px;
-    height: 60px;
+    height: 50px;
     border-radius: 50%;
     transition: 1s;
 }
 
 .user img {
-    height: 60px;
+    height: 50px;
 }
 
 @media screen and (max-width: 1200px){        
