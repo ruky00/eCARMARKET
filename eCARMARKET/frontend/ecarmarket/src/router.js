@@ -11,6 +11,10 @@ const routes =createRouter({
          path:'/login',
          name:'login',
          component:()=> import("../src/components/authComponents/LoginComponent")
+      },
+      {
+         path:'/:pathMatch(.*)*',
+         component: () => import('../src/components/erroComponents/404Component')
       }
    ]
 });
