@@ -30,7 +30,7 @@ public class Profile {
 
     public List<String> getStocks(){ return stocks; }
 
-    public void setStocks(List<String stocks){ this.stocks = stocks; }
+    public void setStocks(List<String> stocks){ this.stocks = stocks; }
 
     public void addStock(String newStock) { this.stocks.add(newStock); }
 
