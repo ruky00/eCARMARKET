@@ -1,7 +1,11 @@
 package com.example.eCARMARKET.Backend.controllers;
 
 import com.example.eCARMARKET.Backend.models.Client;
+import com.example.eCARMARKET.Backend.models.ConfirmationToken;
 import com.example.eCARMARKET.Backend.services.ClientService;
+import com.example.eCARMARKET.Backend.services.ConfirmationTokenService;
+import com.example.eCARMARKET.Backend.services.RegistrationService;
+import com.example.eCARMARKET.Backend.services.email.EmailService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,7 +20,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -29,6 +35,15 @@ public class ClientRestController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ConfirmationTokenService confirmationTokenService;
+
+    @Autowired
+    private RegistrationService registrationService;
+
+    @Autowired
+    private EmailService emailService;
 
     @Operation(summary = "Post a new client")
     @ApiResponses(value = {
@@ -47,29 +62,31 @@ public class ClientRestController {
             )
     })
 
-    @PostMapping("/clients/")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Client> createMemberClient(@RequestBody Client client) {
         try{
         client.setEncodedPassword(passwordEncoder.encode(client.getEncodedPassword()));
         userService.save(client);
+        String token = UUID.randomUUID().toString();
+        ConfirmationToken confirmationToken = new ConfirmationToken(token, LocalDateTime.now(),LocalDateTime.now().plusMinutes(15),client);
+        confirmationTokenService.saveConfirmationToken(confirmationToken);
+        //SEND EMAIL
+        String link = "http://localhost:8080/api/register/confirm?token="+token;
+        emailService.send(client.getEmail(), registrationService.buildEmail(client.getName(),link));
         URI location = fromCurrentRequest().path("/clients/{id}")
                 .buildAndExpand(client.getId()).toUri();
+
         return ResponseEntity.created(location).body(client);}
         catch (Exception e){
             return new  ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
-    //private void setClientImage(Client client, String classpathResource){
-       // try {
-        //    Resource image = new ClassPathResource(classpathResource);
-        //    client.setImage("Default");
-         //   client.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
-      //  } catch(Exception e){
-      //      System.out.println(e.getMessage());
-      //  }
-   // }
+    @GetMapping("/register/confirm")
+    public String confirm(@RequestParam("token") String token){
+        return registrationService.confirmToken(token);
+    }
 
     //GET USER INFO
     @Operation(summary = "Get user logged in the application")
@@ -90,7 +107,7 @@ public class ClientRestController {
     })
 
     @GetMapping("/me")
-    public ResponseEntity<Client> userLoged(HttpServletRequest request) {
+    public ResponseEntity<Client> userLogged(HttpServletRequest request) {
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
             return ResponseEntity.ok(userService.findByEmail(principal.getName()).orElseThrow());
@@ -114,7 +131,7 @@ public class ClientRestController {
             user.setEncodedPassword(pass);
         }
         userService.save(user);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

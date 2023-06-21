@@ -19,14 +19,16 @@ public class RepositoryUserDetailService implements UserDetailsService {
     private ClientRepository userRepository;
 
 
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Client user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority("ROLE_" + "USER"));
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(),
-                user.getEncodedPassword(), roles);
+                user.getEncodedPassword(),user.isEnabled(),true,true,true, roles);
 
     }
 }

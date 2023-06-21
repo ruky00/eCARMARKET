@@ -100,6 +100,8 @@ public class Client {
         this.imageFile = imageFile;
     }
 
+    public Client(){}
+
     public Client(String name, String surname, String email, String occupation, boolean permission, String encodedPassword) {
         this.name = name;
         this.surname = surname;

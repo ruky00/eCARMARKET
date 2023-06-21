@@ -25,4 +25,9 @@ public class ClientService {
        return clientRepository.findById(id);
    }
 
+   public void enableUser(Client user){
+       user.setEnabled(true);
+       clientRepository.save(user);
+   }
+
 }
