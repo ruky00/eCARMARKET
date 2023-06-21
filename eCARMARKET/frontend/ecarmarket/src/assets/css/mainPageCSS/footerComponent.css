@@ -33,6 +33,7 @@ footer button {
     border: none;
     padding: 10px 60px 10px 25px;
     border-radius: 50px;
+    display: flex;
 }
 
 footer #button-arrow {
