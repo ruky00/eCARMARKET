@@ -21,7 +21,18 @@
             </nav>
     </header>
         <div class="side-panel" id="side-panel">
-
+            <div class="close-side">
+                <button class="close-side" @click="hideSidePanel"><img src="../../assets/images/close.png" alt=""></button>
+            </div>
+            <div class="links-side">
+                <a href="/">Link 1</a>
+                <a href="/">Link 2</a>
+                <a href="/">Link 3</a>
+                <a href="/">Link 4</a>
+            </div>
+            <div class="user-side">
+                <a href="/login"><img class="logo" src="../../assets/images/user.png" alt="User"></a>
+            </div>
         </div>
 </template>
 
@@ -37,6 +48,7 @@ export default{
         window.addEventListener('scroll', this.headerScroll);
         window.addEventListener('scroll', this.hideSidePanel);
         window.addEventListener('load', this.hideSidePanel);
+        window.addEventListener('load', this.changeVisibility);
     },
     methods: {
         headerScroll() {
@@ -63,6 +75,10 @@ export default{
             requestAnimationFrame(() => {
                 document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
             });
+        },
+        changeVisibility () {
+            document.getElementById('side-panel').style.transition = "visibility 0s ease 2s";
+            document.getElementById('side-panel').style.visibility = "visible";
         }
     }
 }

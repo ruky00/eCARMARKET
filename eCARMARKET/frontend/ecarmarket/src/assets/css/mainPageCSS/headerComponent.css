@@ -35,7 +35,7 @@ nav {
     font-size: xx-large;
 }
 
-a:hover {
+nav a:hover {
     color: var(--corn-field-500);
 }
 
@@ -96,12 +96,75 @@ a:hover {
 
 
 .side-panel {
-    display: block;
+    display: grid;
+    grid-template: 
+    'Close'
+    'Links'
+    'User';
+    grid-template-rows: 100px auto 100px;
+    visibility: hidden;
     position: fixed;
     width: 25%;
     height: 100%;
     background-color: var(--half-baked-950);
     z-index: 2;
+}
+
+.close-side {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.close-side button {
+    background-color: transparent;
+    border: none;
+}
+
+.close-side img {
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: var(--half-baked-300);
+}
+
+.links-side {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: xx-large;
+    gap: 20px;
+}
+
+.links-side a {
+    text-decoration: none;
+    color: var(--corn-field-100);
+}
+
+.links-side a:hover {
+    color: var(--corn-field-500);
+}
+
+.user-side {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.user-side a {
+    width: fit-content;
+    background-color: var(--half-baked-300);
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+}
+
+.user-side img {
+    height: 50px;
 }
 
 @media screen and (min-width: 1200px) {
