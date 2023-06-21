@@ -6,6 +6,7 @@
     animation: animateBackground 10s ease-in-out infinite;
     background: linear-gradient(45deg, var(--half-baked-300), var(--half-baked-600),var(--half-baked-900));
     background-size: 200% 200%;
+    padding-bottom: 100px;
 }
 @keyframes animateBackground {
     0% {
@@ -53,7 +54,7 @@
     cursor: pointer;
 }
 
-#button-arrow {
+.intro #button-arrow {
     background-color: var(--half-baked-900);
     border: none;
     position: relative;
@@ -64,14 +65,14 @@
     padding: 0px;
 }
 
-#button-arrow:hover {
+.intro #button-arrow:hover {
     cursor: pointer;
 }
 
-#button-arrow img {
+.intro #button-arrow img {
     height: 30px;
 }
 
-#button-arrow img:hover {
+.intro #button-arrow img:hover {
     cursor: pointer;
 }

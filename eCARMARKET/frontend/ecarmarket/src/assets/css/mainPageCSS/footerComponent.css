@@ -33,10 +33,15 @@ footer button {
     border: none;
     padding: 10px 60px 10px 25px;
     border-radius: 50px;
+    display: flex;
 }
 
 footer #button-arrow {
-    right: 45px;
+    width: 0px;
+    background-color: transparent;
+    position: relative;
+    bottom: 45px;
+    left: 120px;
 }
 
 footer #button-arrow img {
