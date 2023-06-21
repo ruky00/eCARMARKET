@@ -1,6 +1,6 @@
 footer {
     height: 100%;
-    background-color: var(--half-baked-950);
+    background-color: var(--half-baked-900);
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -29,7 +29,7 @@ footer h2 {
 footer button {
     font-size: 1.5em;
     color: var(--corn-field-100);
-    background-color: var(--half-baked-900);
+    background-color: var(--half-baked-800);
     border: none;
     padding: 10px 60px 10px 25px;
     border-radius: 50px;

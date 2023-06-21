@@ -3,15 +3,6 @@
         <input type="text" name="search" id="search" placeholder="Search...">
         <button type="submit" class="search-icon"><img src="../../assets/images/search.png" alt=""></button>
     </form>
-
-    <div class="outside-button" id="outside-button">
-        <button type="submit" class="search-icon-outside" @click="searchBarShow()"><img src="../../assets/images/search.png" alt=""></button>
-    </div>
-
-    <form action="/search" class="search-bar-small" id="search-bar-small">
-        <input type="text" name="seach" id="search-small" placeholder="Search...">
-        <button type="submit" class="search-icon-small"><img src="../../assets/images/search.png" alt=""></button>
-    </form>
 </template>
 
 <script>

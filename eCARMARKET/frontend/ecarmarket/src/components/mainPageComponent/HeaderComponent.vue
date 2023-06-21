@@ -10,11 +10,19 @@
                     <a href="/">Link 3</a>
                     <a href="/">Link 4</a>
                 </div>
+                <div class="burger" id="burger">
+                    <button class="burger-button" @click="showSidePanel">
+                        <img src="../../assets/images/burger.png" alt="">
+                    </button>
+                </div>
                 <div class="user">
                     <a href="/login"><img class="logo" src="../../assets/images/user.png" alt="User"></a>
                 </div>
             </nav>
     </header>
+        <div class="side-panel" id="side-panel">
+
+        </div>
 </template>
 
 <script>
@@ -27,6 +35,8 @@ export default{
     },
     mounted () {
         window.addEventListener('scroll', this.headerScroll);
+        window.addEventListener('scroll', this.hideSidePanel);
+        window.addEventListener('load', this.hideSidePanel);
     },
     methods: {
         headerScroll() {
@@ -35,6 +45,24 @@ export default{
 
             else
                 document.getElementById('sticky-header').classList.remove("header-color");
+        },
+        hideSidePanel() {
+            var elementWidth = document.getElementById('side-panel').clientWidth;
+            var windowWidth = window.innerWidth;
+            var totalOffset = elementWidth + windowWidth;
+            document.getElementById('side-panel').style.transition = "transform 1s ease";
+            requestAnimationFrame(() => {
+                document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
+            });
+        },
+        showSidePanel () {
+            var elementWidth = document.getElementById('side-panel').clientWidth;
+            var windowWidth = window.innerWidth;
+            var totalOffset = windowWidth - elementWidth;
+            document.getElementById('side-panel').style.transition = "transform 1s ease";
+            requestAnimationFrame(() => {
+                document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
+            });
         }
     }
 }

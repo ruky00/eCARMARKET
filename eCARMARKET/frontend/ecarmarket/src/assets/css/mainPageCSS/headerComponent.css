@@ -16,7 +16,7 @@ header{
     transition: .5s;
 }
 
-.header-color .user {
+.header-color .user,.header-color .burger {
     background-color: var(--half-baked-300);
     transition: 1s;
 }
@@ -60,6 +60,26 @@ a:hover {
     height: 50px;
 }
 
+.burger {
+    display: none;
+    justify-content: flex-end;
+    border-radius: 100%;
+    transition: 1s;
+    padding: 7px;
+}
+
+.burger-button {
+    background-color: transparent;
+    border: none;
+}
+
+.burger img {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 2px;
+}
+
 @media screen and (max-width: 1200px){        
     .links{
        display: none;
@@ -67,5 +87,25 @@ a:hover {
 
     nav {
         justify-content: flex-end;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+
+.side-panel {
+    display: block;
+    position: fixed;
+    width: 25%;
+    height: 100%;
+    background-color: var(--half-baked-950);
+    z-index: 2;
+}
+
+@media screen and (min-width: 1200px) {
+    .side-panel {
+        display: none;
     }
 }
