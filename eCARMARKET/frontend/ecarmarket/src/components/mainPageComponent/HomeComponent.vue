@@ -14,7 +14,23 @@
 
 <script>
     export default{
-        name: 'HomeComponent'
+        name: 'HomeComponent',
+        mounted () {
+        window.addEventListener('resize', this.adaptSpacer);
+        window.addEventListener('load', this.positionSpacer);
+        },
+        methods: {
+            adaptSpacer() {
+                var elementHeight = document.getElementById('firstToSecond').clientHeight;
+                var topOffset = 1000 - elementHeight;
+                document.getElementById('firstToSecond').style.top = topOffset.toString() + "px"
+            },
+            positionSpacer() {
+                var elementHeight = document.getElementById('firstToSecond').clientHeight;
+                var topOffset = 1000 - elementHeight;
+                document.getElementById('firstToSecond').style.top = topOffset.toString() + "px"
+            }
+        }
     }
 </script>
 

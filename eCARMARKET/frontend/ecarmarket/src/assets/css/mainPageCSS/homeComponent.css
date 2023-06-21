@@ -6,6 +6,7 @@
     animation: animateBackground 10s ease-in-out infinite;
     background: linear-gradient(45deg, var(--half-baked-300), var(--half-baked-600),var(--half-baked-900));
     background-size: 200% 200%;
+    padding-bottom: 100px;
 }
 @keyframes animateBackground {
     0% {
