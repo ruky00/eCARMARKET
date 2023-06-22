@@ -20,24 +20,31 @@
     width: 100%;
 }
 
+.stocks img {
+    position: absolute;
+}
+
 #second-section .focused {
     height: 20vw;
-    transition: .5s;
+    transition: all .5s ease 0s;
     z-index: 1;
 }
 
 #second-section .not-focused {
     height: 10vw;
     filter: brightness(50%);
-    transition: .5s
+    transition: all .5s ease 0s;
 }
 
-.stocks #s1{
-    position:relative;
-    left: 100px;
+.stocks .center {
+    transform: translateX(0);
 }
 
-.stocks #s3{
-    position:relative;
-    right: 100px;
+.stocks .left {
+    transform: translateX(-125%);
 }
+
+.stocks .right {
+    transform: translateX(125%);
+}
+
