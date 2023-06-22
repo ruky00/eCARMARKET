@@ -1,7 +1,7 @@
 <template>
 
     <header id="sticky-header" @scroll="headerScroll">
-        <a href="/"><img class="logo" src="../../assets/images/logo.jpg" alt="Logo"></a>
+        <a href="/"><img class="logo" src="../../assets/images/logo_yellow.png" alt="Logo"></a>
         <SearchBarComponent/>
             <nav>
                 <div class="links">
