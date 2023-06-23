@@ -43,12 +43,22 @@ export default {
     },
     methods: {
         adaptSpacer() {
-            var elementHeight = document.getElementById('visual').clientHeight;
+            var elementHeight;
+            try {
+                elementHeight = document.getElementById('visual').clientHeight;
+            } catch {
+                elementHeight = 0;
+            }
             var topOffset = elementHeight;
             document.getElementById('firstToSecond').style.bottom = topOffset.toString() + "px"
         },
         positionSpacer() {
-            var elementHeight = document.getElementById('visual').clientHeight;
+            var elementHeight;
+            try {
+                elementHeight = document.getElementById('visual').clientHeight;
+            } catch {
+                elementHeight = 0;
+            }
             var topOffset = elementHeight - 45;
             document.getElementById('firstToSecond').style.bottom = topOffset.toString() + "px"
         },
