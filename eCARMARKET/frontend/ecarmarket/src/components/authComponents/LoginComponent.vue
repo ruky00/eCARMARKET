@@ -5,7 +5,7 @@
 				<h2>Sign In</h2>
 				<label>
 					<span>Email Address</span>
-					<input type="email" v-model="email" required>
+					<input type="email" v-model="username" required>
 				</label>
 				<label>
 					<span>Password</span>
@@ -63,7 +63,7 @@
         name:'LoginComponent',
         data(){
 			return{
-				email:'',
+				username:'',
 				password:''
 			}
         },
@@ -91,7 +91,7 @@
 
 				// Create request payload
 				const payload = {
-					email: this.email,
+					username: this.username,
 					password: this.password
 				};
 
@@ -122,7 +122,7 @@
 					});
 
 				// Reset the form fileds
-				this.email = '';
+				this.username = '';
 				this.password = '';
 			}
 		},
