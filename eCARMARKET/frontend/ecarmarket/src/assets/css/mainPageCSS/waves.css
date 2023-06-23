@@ -7,8 +7,16 @@
 }
 
 #firstToSecond {
-    background-image: url("../../../assets/images/waves/wave-haikei.svg");
-    position: absolute;
+    height: 0px;
+    position: relative;
+}
+
+#firstToSecond svg{
+    aspect-ratio: 900/200;
+}
+
+#wave2 {
+    visibility: hidden;
 }
 
 #secondToThird {

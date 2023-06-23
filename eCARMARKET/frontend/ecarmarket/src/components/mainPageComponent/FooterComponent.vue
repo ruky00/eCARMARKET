@@ -1,6 +1,6 @@
 <template>
       <footer>
-        <img src="../../assets/images/logo.jpg" alt="" class="logo">
+        <img src="../../assets/images/logo_yellow.png" alt="" class="logo">
         <div class="footer-middel">
             <div class="left">
                 <h2>A solution for Investors, Analysts and Industry Leaders</h2>
