@@ -1,11 +1,9 @@
 package com.example.eCARMARKET.Backend.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.eCARMARKET.Backend.models.stocks.Stock;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Profile {
@@ -16,11 +14,14 @@ public class Profile {
 
     private String clientEmail;
 
-    private String stocks;
+    @OneToMany(mappedBy = "cart")
+    private Set<Stock> stocks;
 
-    private String markets;
+    @OneToMany(mappedBy = "cart")
+    private Set<Market> markets;
 
-    private String globalDataSections;
+    @OneToMany(mappedBy = "cart")
+    private Set<GlobalDataSection> globalDataSections;
 
     private String newsTopics;
 
@@ -28,29 +29,29 @@ public class Profile {
 
     public void setClientEmail(String clientEmail){ this.clientEmail = clientEmail; }
 
-    public String getStocks(){ return stocks; }
+    public Set<Stock> getStocks(){ return stocks; }
 
-    public void setStocks(String stocks){ this.stocks = stocks; }
+    public void setStocks(Set<Stock> stocks){ this.stocks = stocks; }
 
-    public void addStock(String newStock) { this.stocks += "_" + newStock; }
+    public void addStock(Stock newStock) { this.stocks.add(newStock); }
 
-    public void removeStock(String stockToRemove){ this.stocks.replace(stockToRemove, ""); }
+    public void removeStock(Stock stockToRemove){ this.stocks.remove(stockToRemove); }
 
-    public String getMarkets(){ return markets; }
+    public Set<Market> getMarkets(){ return markets; }
 
-    public void setMarkets(String markets){ this.markets = markets; }
+    public void setMarkets(Set<Market> markets){ this.markets = markets; }
 
-    public void addMarket(String newMarket) { this.markets += "_" + newMarket; }
+    public void addMarket(Market newMarket) { this.markets.add(newMarket); }
 
-    public void removeMarket(String marketToRemove){ this.markets.replace(marketToRemove, ""); }
+    public void removeMarket(Market marketToRemove){ this.markets.remove(marketToRemove); }
 
-    public String getGlobalInformation(){ return globalDataSections; }
+    public Set<GlobalDataSection> getGlobalInformation(){ return globalDataSections; }
 
-    public void setGlobalInformation(String globalInformation){ this.globalDataSections = globalInformation; }
+    public void setGlobalInformation(Set<GlobalDataSection> globalInformation){ this.globalDataSections = globalInformation; }
 
-    public void addGlobalInformation(String newGlobalInformation) { this.globalDataSections += "_" + newGlobalInformation; }
+    public void addGlobalInformation(GlobalDataSection newGlobalInformation) { this.globalDataSections.add(newGlobalInformation); }
 
-    public void removeGlobalInformation(String globalInformationToRemove){ this.globalDataSections.replace(globalInformationToRemove, ""); }
+    public void removeGlobalInformation(GlobalDataSection globalInformationToRemove){ this.globalDataSections.remove(globalInformationToRemove); }
 
     public String getNewsTopics(){ return newsTopics; }
 
