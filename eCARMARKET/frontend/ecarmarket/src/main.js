@@ -5,6 +5,6 @@ import App from './App.vue'
 import routes from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-axios.defaults.baseURL = 'http://localhost:8080/api'
+axios.defaults.baseURL = 'http://localhost:8081/api'
 
 createApp(App).use(routes).use(VueAxios,axios).mount('#app')
