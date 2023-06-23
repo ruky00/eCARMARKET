@@ -1,4 +1,4 @@
-package com.example.eCARMARKET.Backend.models;
+package com.example.eCARMARKET.Backend.models.stocks;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

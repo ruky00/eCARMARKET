@@ -1,7 +1,6 @@
 package com.example.eCARMARKET.Backend.services;
 
-import com.example.eCARMARKET.Backend.models.MetaData;
-import com.example.eCARMARKET.Backend.models.Stock;
+import com.example.eCARMARKET.Backend.models.stocks.Stock;
 import com.example.eCARMARKET.Backend.repositories.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

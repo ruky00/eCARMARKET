@@ -1,7 +1,6 @@
 package com.example.eCARMARKET.Backend.repositories;
 
-import com.example.eCARMARKET.Backend.models.MetaData;
-import com.example.eCARMARKET.Backend.models.Stock;
+import com.example.eCARMARKET.Backend.models.stocks.Stock;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

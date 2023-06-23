@@ -1,12 +1,9 @@
 package com.example.eCARMARKET.Backend.controllers;
 
-import com.example.eCARMARKET.Backend.models.Stock;
+import com.example.eCARMARKET.Backend.models.stocks.Stock;
 import com.example.eCARMARKET.Backend.services.StockService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
