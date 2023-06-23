@@ -2,8 +2,11 @@ package com.example.eCARMARKET.Backend.controllers;
 
 import com.example.eCARMARKET.Backend.models.Client;
 import com.example.eCARMARKET.Backend.models.ConfirmationToken;
+import com.example.eCARMARKET.Backend.models.ProfileForm;
+import com.example.eCARMARKET.Backend.repositories.ProfileFormRepository;
 import com.example.eCARMARKET.Backend.services.ClientService;
 import com.example.eCARMARKET.Backend.services.ConfirmationTokenService;
+import com.example.eCARMARKET.Backend.services.ProfileFormService;
 import com.example.eCARMARKET.Backend.services.RegistrationService;
 import com.example.eCARMARKET.Backend.services.email.EmailService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,6 +47,9 @@ public class ClientRestController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private ProfileFormService profileFormService;
 
     @Operation(summary = "Post a new client")
     @ApiResponses(value = {
@@ -133,5 +139,27 @@ public class ClientRestController {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+   //POST PROFILE_FORM DUE TO GENERATE PERSONAL INFO
+    @PostMapping("/me/profile/")
+    public ResponseEntity<ProfileForm> postFormulary(@RequestBody ProfileForm profileForm,HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        profileFormService.save(profileForm);
+        if(principal != null){
+            Client client = userService.findByEmail(principal.getName()).orElseThrow();
+            client.setProfileForm(profileForm);
+        }  URI location = fromCurrentRequest().path("")
+                .buildAndExpand(profileForm.getId()).toUri();
+        return ResponseEntity.created(location).body(profileForm);
+    }
+
+    @GetMapping("/me/profile")
+    public ResponseEntity<ProfileForm> getFormulary(HttpServletRequest request){
+        Principal principal = request.getUserPrincipal();
+        Client client = userService.findByEmail(principal.getName()).orElseThrow();
+        return new ResponseEntity<>(client.getProfileForm(),HttpStatus.OK);
+    }
+
+
 
 }

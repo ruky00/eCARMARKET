@@ -1,9 +1,6 @@
 package com.example.eCARMARKET.Backend.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Blob;
 
 @Entity
@@ -25,6 +22,16 @@ public class Client {
     private boolean isEnabled;
 
     private Blob imageFile;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ProfileForm profileForm;
+
+    public ProfileForm getProfileForm() {
+        return profileForm;
+    }
+
+    public void setProfileForm(ProfileForm profileForm) {
+        this.profileForm = profileForm;
+    }
 
     public long getId() {
         return id;
