@@ -6,7 +6,7 @@
                 <h2>A solution for Investors, Analysts and Industry Leaders</h2>
                 <div class="try-button">
                     <button type="button" onclick="location.href='/register'">Try it now</button>
-                    <button type="button" onclick="location.href='/register'" id="button-arrow"><img src="../../assets/images/arrow.png" alt=""></button>
+                    <button type="button" onclick="location.href='/register'" class="button-arrow"><img src="../../assets/images/arrow.png" alt=""></button>
                 </div>
             </div>
             <div class="right">
