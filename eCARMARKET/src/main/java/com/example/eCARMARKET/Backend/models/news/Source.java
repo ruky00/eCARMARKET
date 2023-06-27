@@ -2,10 +2,11 @@ package com.example.eCARMARKET.Backend.models.news;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.persistence.Entity;
+
+import javax.persistence.Embeddable;
 import javax.persistence.Id;
 
-@Entity
+@Embeddable
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Source {
 
