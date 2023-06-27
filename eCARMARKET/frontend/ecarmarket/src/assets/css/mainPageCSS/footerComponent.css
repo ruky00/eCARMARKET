@@ -36,7 +36,7 @@ footer button {
     display: flex;
 }
 
-footer #button-arrow {
+footer .button-arrow {
     width: 0px;
     background-color: transparent;
     position: relative;
@@ -44,7 +44,7 @@ footer #button-arrow {
     left: 120px;
 }
 
-footer #button-arrow img {
+footer .button-arrow img {
     height: 20px;
 }
 
