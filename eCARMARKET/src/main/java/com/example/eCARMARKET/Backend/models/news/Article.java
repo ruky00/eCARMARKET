@@ -15,7 +15,6 @@ public class Article {
     private long id;
 
     @JsonProperty("source")
-    @OneToOne(mappedBy = "articles")
     private Source source;
 
     @JsonProperty("author")

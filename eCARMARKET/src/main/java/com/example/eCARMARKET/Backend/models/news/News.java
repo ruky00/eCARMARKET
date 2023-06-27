@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,8 +22,8 @@ public class News {
     private int totalResults;
 
     @JsonProperty("articles")
-    @OneToMany(mappedBy = "news")
-    private Set<Article> articles;
+    @OneToMany
+    private List<Article> articles;
 
     public long getId() { return id; }
 
@@ -36,11 +37,15 @@ public class News {
 
     public void setTotalResults(int totalResults) { this.totalResults = totalResults; }
 
-    public Set<Article> getArticles() { return articles; }
+    public List<Article> getArticles() { return articles; }
 
-    public void setArticles(Set<Article> articles) { this.articles = articles; }
+    public void setArticles(List<Article> articles) { this.articles = articles; }
 
-    public void addArticles(Article article) { articles.add(article); }
+    public News(){}
 
-    public void removeArticles(Article article) { articles.remove(article); }
+    public News(List<Article> articles, String status, int totalResults){
+        this.articles=articles;
+        this.status=status;
+        this.totalResults=totalResults;
+    }
 }
