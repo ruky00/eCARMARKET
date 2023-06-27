@@ -2,8 +2,6 @@ package com.example.eCARMARKET.Backend.models;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.UUID;
 
 @Entity
 public class ConfirmationToken {
