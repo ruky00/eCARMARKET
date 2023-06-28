@@ -1,26 +1,33 @@
 package com.example.eCARMARKET.Backend.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class GlobalDataSection {
 
     @Id
-    private String sectionName;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String info;
 
-    public String getSectionName() { return sectionName; }
+    public long getId() {
+        return id;
+    }
 
-    public void setSectionName(String sectionName) { this.sectionName = sectionName; }
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getInfo() { return info; }
 
     public void setInfo(String info) { this.info = info; }
 
-    public GlobalDataSection(String sectionName, String info){
-        this.sectionName = sectionName;
+    public GlobalDataSection(long id, String info){
+        this.id = id;
         this.info = info;
     }
 }

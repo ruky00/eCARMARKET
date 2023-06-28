@@ -14,8 +14,8 @@ public class GlobalDataSectionService {
     @Autowired
     private GlobalDataSectionRepository globalDataSectionRepository;
 
-    public Optional<GlobalDataSection> findBySectionName(String sectionName) {
-        return globalDataSectionRepository.findBySectionName(sectionName);
+    public Optional<GlobalDataSection> findById(long id) {
+        return globalDataSectionRepository.findById(id);
     }
     
 }

@@ -11,11 +11,16 @@ const routes =createRouter({
          path:'/login',
          name:'login',
          component:()=> import("../src/components/authComponents/LoginComponent")
+      }, {
+         path:'/form',
+         name:'form',
+         component: () => import('../src/components/userComponents/ProfileFormComponent'),
       },
       {
          path:'/:pathMatch(.*)*',
          component: () => import('../src/components/erroComponents/404Component')
-      }
+      },
+     
    ]
 });
 
