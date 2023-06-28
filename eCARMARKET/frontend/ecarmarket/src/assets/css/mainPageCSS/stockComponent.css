@@ -7,12 +7,6 @@
     justify-content: space-around;
 } 
 
-#second-section h2 {
-    font-size: 40px;
-    font-family: var(--titles);
-    color: var(--corn-field-100);
-}
-
 #second-section .stocks {
     display: flex;
     justify-content: center;
@@ -20,20 +14,33 @@
     width: 100%;
 }
 
-.stocks img {
+.stocks div {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #second-section .focused {
+    background-color: var(--half-baked-300);
     height: 20vw;
+    width: 45vw;
+    filter: brightness(80%);
+    border-radius: 30px;
     transition: all .5s ease 0s;
     z-index: 1;
+    font-size: 1vw;
 }
 
 #second-section .not-focused {
+    background-color: var(--half-baked-300);
     height: 10vw;
+    width: 23vw;
     filter: brightness(50%);
+    border-radius: 20px;
     transition: all .5s ease 0s;
+    font-size: .5vw;
 }
 
 .stocks .center {
@@ -47,4 +54,3 @@
 .stocks .right {
     transform: translateX(125%);
 }
-
