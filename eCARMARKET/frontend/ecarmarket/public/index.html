@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <style>
-  </style>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="icon" id="faviconId" href="<%= BASE_URL %>favicon.ico">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+	</head>
+	<style>
+	</style>
+	<body>
+		<noscript>
+			<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+
+		<script>
+			const faviconTag = document.getElementById("faviconId");
+			const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+			const changeFavicon = () => {
+				if (isDark.matches) faviconTag.href = "<%= BASE_URL %>dark.ico";
+				else faviconTag.href = "<%= BASE_URL %>light.ico";
+			};
+
+			changeFavicon();
+
+			setInterval(changeFavicon, 1000);
+		</script>
+	</body>
 </html>
