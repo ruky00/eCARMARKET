@@ -43,4 +43,38 @@ public class NewsService {
                 });
     }
 
+    public void getNewsElectricCars(){
+        newsApiClient.getEverything(
+                new EverythingRequest.Builder()
+                        .q("electric cars")
+                        .build(),
+                new NewsApiClient.ArticlesResponseCallback() {
+                    @Override
+                    public void onSuccess(ArticleResponse articleResponse) {
+                        System.out.println(articleResponse.getArticles().get(0).getTitle());
+                    }
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        System.out.println(throwable.getMessage());
+                    }
+                });
+    }
+
+    public void getNewsFor(String subject){
+        newsApiClient.getEverything(
+                new EverythingRequest.Builder()
+                        .q(subject)
+                        .build(),
+                new NewsApiClient.ArticlesResponseCallback() {
+                    @Override
+                    public void onSuccess(ArticleResponse articleResponse) {
+                        System.out.println(articleResponse.getArticles().get(0).getTitle());
+                    }
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        System.out.println(throwable.getMessage());
+                    }
+                });
+    }
+
 }
