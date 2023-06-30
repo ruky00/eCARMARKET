@@ -52,29 +52,45 @@ export default{
     },
     methods: {
         headerScroll() {
-            if (window.pageYOffset > 5)
-                document.getElementById('sticky-header').classList.add("header-color");
+            var tag = "header-color"
+            try {
+                if (window.pageYOffset > 5)
+                    document.getElementById('sticky-header').classList.add(tag);
 
-            else
-                document.getElementById('sticky-header').classList.remove("header-color");
+                else
+                    document.getElementById('sticky-header').classList.remove(tag);
+            }
+            catch {
+                tag = "";
+            }
         },
         hideSidePanel() {
-            var elementWidth = document.getElementById('side-panel').clientWidth;
-            var windowWidth = window.innerWidth;
-            var totalOffset = elementWidth + windowWidth;
-            document.getElementById('side-panel').style.transition = "transform 1s ease";
-            requestAnimationFrame(() => {
-                document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
-            });
+            try {
+                var elementWidth = document.getElementById('side-panel').clientWidth;
+                var windowWidth = window.innerWidth;
+                var totalOffset = elementWidth + windowWidth;
+                document.getElementById('side-panel').style.transition = "transform 1s ease";
+                requestAnimationFrame(() => {
+                    document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
+                });
+            }
+            catch {
+                elementWidth = 0;
+            }
         },
         showSidePanel () {
-            var elementWidth = document.getElementById('side-panel').clientWidth;
-            var windowWidth = window.innerWidth;
-            var totalOffset = windowWidth - elementWidth;
-            document.getElementById('side-panel').style.transition = "transform 1s ease";
-            requestAnimationFrame(() => {
-                document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
-            });
+            try {
+                var elementWidth = document.getElementById('side-panel').clientWidth;
+                var windowWidth = window.innerWidth;
+                var totalOffset = windowWidth - elementWidth;
+                document.getElementById('side-panel').style.transition = "transform 1s ease";
+                requestAnimationFrame(() => {
+                    document.getElementById('side-panel').style.transform = "translateX(" + totalOffset + "px)";
+                });
+            }
+            catch {
+                elementWidth = 0;
+            }
         },
         changeVisibility () {
             document.getElementById('side-panel').style.transition = "visibility 0s ease 2s";
