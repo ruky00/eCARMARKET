@@ -2,14 +2,14 @@
     <div id="second-section">
         <h2>THE STOCK MARKET WITHIN YOUR REACH</h2>
         <div class="stocks">
-            <div alt="" id="s1" class="not-focused left" @click="changeState('s1')">
-                <h2 id="s1Name"></h2>
+            <div alt="" id="TSLA" class="not-focused left" @click="changeState('TSLA')">
+                <h2 id="TSLAName"></h2>
             </div>
-            <div alt="" id="s2" class="focused center" @click="changeState('s2')">
-                <h2 id="s2Name"></h2>
+            <div alt="" id="BYDDF" class="focused center" @click="changeState('BYDDF')">
+                <h2 id="BYDDFName"></h2>
             </div>
-            <div alt="" id="s3" class="not-focused right" @click="changeState('s3')">
-                <h2 id="s3Name"></h2>
+            <div alt="" id="IBM" class="not-focused right" @click="changeState('IBM')">
+                <h2 id="IBMName"></h2>
             </div>
         </div>
     </div>
@@ -26,9 +26,9 @@
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
             script.onload = () => {
-                this.generateGraph("s1");
-                this.generateGraph("s2");
-                this.generateGraph("s3");
+                this.generateGraph("TSLA");
+                this.generateGraph("BYDDF");
+                this.generateGraph("IBM");
             };
             document.head.appendChild(script);
 
@@ -80,54 +80,60 @@
 
                 // Create a dataset
                 
-                async function fetchData() {
-                    const response = await fetch('/s1.json');
+                /* async function fetchData() {
+                    const response = await fetch('/s1.json');//const response = await fetch(`http://localhost:8081/api/monthly?symbol=${graphId}`);//
                     const json = await response.json();
                     return json;
-                }
+                } */
 
-                var jsonData = await fetchData();
+                var url = '/s1.json'//'http://localhost:8081/api/monthly?symbol=' + graphId;
 
-                const dataset = [];
+                window.$.getJSON(url, function(jsonData) {
+                    const dataset = [];
 
-                Object.keys(jsonData["Time Series (Daily)"]).forEach(key => {
-                    dataset.push({ date: new Date(key), value: jsonData["Time Series (Daily)"][key]["4. close"]})
+                    Object.keys(jsonData["Time Series (Daily)"]).forEach(key => {
+                        dataset.push({ date: new Date(key), value: jsonData["Time Series (Daily)"][key]["4. close"]})
+                    });
+                    document.getElementById(`${graphId}Name`).innerHTML = jsonData["Meta Data"]["2. Symbol"];
+
+                    /* Object.keys(jsonData["Monthly Time Series"]).forEach(key => {
+                        dataset.push({ date: new Date(key), value: jsonData["Monthly Time Series"][key]["4. close"]})
+                    });
+                    document.getElementById(`${graphId}Name`).innerHTML = jsonData["Meta Data"]["2. Symbol"]; */
+
+                    // Define the x and y domains
+
+                    x.domain(window.d3.extent(dataset, d => d.date));
+                    y.domain([window.d3.min(dataset, d => d.value) - 3, window.d3.max(dataset, d => d.value)]);
+
+                    // Add the x-axis
+
+                    svg.append("g")
+                        .attr("transform", `translate(0,${height})`)
+                        .call(window.d3.axisBottom(x)
+                            .ticks(window.d3.timeYear.every(1))
+                            .tickFormat(window.d3.timeFormat("%b %Y")))
+
+                    // Add the y-axis
+
+                    svg.append("g")
+                        .call(window.d3.axisLeft(y))
+
+                    // Create the line generator
+
+                    const line = window.d3.line()
+                        .x(d => x(d.date))
+                        .y(d => y(d.value));
+
+                    // Add the line path to the SVG element
+
+                    svg.append("path")
+                        .datum(dataset)
+                        .attr("fill", "none")
+                        .attr("stroke", "steelblue")
+                        .attr("stroke-width", 1)
+                        .attr("d", line)
                 });
-
-                document.getElementById(`${graphId}Name`).innerHTML = jsonData["Meta Data"]["2. Symbol"];
-
-                // Define the x and y domains
-
-                x.domain(window.d3.extent(dataset, d => d.date));
-                y.domain([window.d3.min(dataset, d => d.value) - 3, window.d3.max(dataset, d => d.value)]);
-
-                // Add the x-axis
-
-                svg.append("g")
-                    .attr("transform", `translate(0,${height})`)
-                    .call(window.d3.axisBottom(x)
-                        .ticks(window.d3.timeMonth.every(1))
-                        .tickFormat(window.d3.timeFormat("%b %Y")))
-
-                // Add the y-axis
-
-                svg.append("g")
-                    .call(window.d3.axisLeft(y))
-
-                // Create the line generator
-
-                const line = window.d3.line()
-                    .x(d => x(d.date))
-                    .y(d => y(d.value));
-
-                // Add the line path to the SVG element
-
-                svg.append("path")
-                    .datum(dataset)
-                    .attr("fill", "none")
-                    .attr("stroke", "steelblue")
-                    .attr("stroke-width", 1)
-                    .attr("d", line)
             },
         }
     }
