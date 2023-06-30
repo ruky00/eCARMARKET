@@ -26,7 +26,6 @@ public class StockRestController {
 
     private final OkHttpClient client = new OkHttpClient();
 
-
     private final RestTemplate restTemplate = new RestTemplate();
 
     @GetMapping("/monthly")
@@ -40,6 +39,5 @@ public class StockRestController {
         stockService.save(stock);
         return new ResponseEntity<>(stock,HttpStatus.OK);
     }
-
 
 }
