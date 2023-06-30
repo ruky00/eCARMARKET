@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vueform/multiselect": "^2.6.2",
+    "@yaireo/tagify": "^4.17.8",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "bootstrap-vue": "^2.23.1",

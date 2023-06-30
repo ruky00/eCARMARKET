@@ -6,24 +6,31 @@
       <form action="#">
          <div class="form-row">
             <div class="input-data">
-               <input type="text" required>
+               <input type="text" required v-model="role">
                <div class="underline"></div>
                <label for="">What role do you have?</label>
             </div>
             <div class="input-data">
-               <input type="text" required>
+               <input type="text" required v-model="org"> 
                <div class="underline"></div>
                <label for="">Organization you are working on</label>
             </div>
          </div>
          <div class="form-row">
             <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
+        
                <label for="">Whats your favourite EV company?</label>
+               <Multiselect 
+              v-model="selectedTags"
+              mode="tags"
+              placeholder="Select 3 EV companies"
+              :options="options"
+              :searchable="true"
+              :createTag="false"
+              :disabled="isDisabled"></Multiselect>
             </div>
             <div class="input-data">
-               <input type="text" required>
+               <input type="text" required v-model="recive">
                <div class="underline"></div>
                <label for="">Want to recieve overviews?</label>
             </div>
@@ -39,14 +46,39 @@
 </template>
 
 <script>
+  import Multiselect from '@vueform/multiselect'
     export default{
-        name:'ProfileFormComponent',
+      components:{
+        Multiselect
+      },
+      name:'ProfileFormComponent',
+      data() {
+      return {
+        options: ['Tesla', 'Cupra', 'Ford','Volvo','MG'],
+        selectedTags: [],
+        maxTags:3,
+        isDisabled:false
+      }
+    },
+    computed: {
+    isMaxTagsReached() {
+      return this.selectedTags.length >= this.maxTags;
+      
     }
+  },
+  watch: {
+    isMaxTagsReached(value) {
+      this.isDisabled = value;
+    }
+  }
+  }
 </script>
 
 <style>
+@import '@vueform/multiselect/themes/default.css';
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import '../../assets/css/variables.css';
+
 *{
   margin: 0;
   padding: 0;
