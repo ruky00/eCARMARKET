@@ -16,7 +16,9 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepository;
 
-    NewsApiClient newsApiClient= new NewsApiClient("7c72a80e39d84bb0b085084474b70b4e");
+    private final static String apiKey = "7c72a80e39d84bb0b085084474b70b4e";
+
+    NewsApiClient newsApiClient= new NewsApiClient(apiKey);
 
     public void save(News news){
         newsRepository.save(news);

@@ -24,6 +24,8 @@ public class StockService {
 
     private StockService stockService;
 
+    private final static String apiKey = "97OQGDE121GB24RO";
+
     private final OkHttpClient client = new OkHttpClient();
 
     public void save(Stock stock){
@@ -39,7 +41,7 @@ public class StockService {
     }
 
     public ResponseEntity<Object> getStockMonthly(@RequestParam(value = "symbol") String symbol) throws IOException {
-        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol="+symbol+"&apikey=97OQGDE121GB24RO";
+        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol="+symbol+"&apikey=" + apiKey;
         Request request = new Request.Builder().url(url).get().build();
         Response response = client.newCall(request).execute();
         String jsonResponse = response.body().string();
