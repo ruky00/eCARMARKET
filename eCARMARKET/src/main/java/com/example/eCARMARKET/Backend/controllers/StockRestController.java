@@ -31,7 +31,7 @@ public class StockRestController {
 
     @GetMapping("/monthly")
     public ResponseEntity<Object> getStock(@RequestParam(value = "symbol") String symbol) throws IOException {
-        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+symbol+"&apikey=97OQGDE121GB24RO";
+        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol="+symbol+"&apikey=97OQGDE121GB24RO";
         Request request = new Request.Builder().url(url).get().build();
         Response response = client.newCall(request).execute();
         String jsonResponse = response.body().string();
