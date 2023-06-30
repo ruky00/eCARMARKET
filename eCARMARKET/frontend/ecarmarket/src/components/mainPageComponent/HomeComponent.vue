@@ -31,7 +31,7 @@ export default {
     name: 'HomeComponent',
     mounted() {
         window.addEventListener('resize', this.adaptSpacer);
-        window.addEventListener('load', this.positionSpacer);
+        this.positionSpacer();
 
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js';
