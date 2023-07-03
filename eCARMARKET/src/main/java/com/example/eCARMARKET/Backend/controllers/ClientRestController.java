@@ -160,6 +160,4 @@ public class ClientRestController {
         return new ResponseEntity<>(client.getProfileForm(),HttpStatus.OK);
     }
 
-
-
 }

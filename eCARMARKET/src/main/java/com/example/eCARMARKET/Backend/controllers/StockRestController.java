@@ -42,5 +42,15 @@ public class StockRestController {
         stockService.save(stock);
         return new ResponseEntity<>(stock,HttpStatus.OK);
     }
-
+    @GetMapping("/demo")
+    public ResponseEntity<Object> getStockDemo(@RequestParam(value = "symbol") String symbol) throws IOException {
+        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol="+symbol+"&apikey=demo";
+        Request request = new Request.Builder().url(url).get().build();
+        Response response = client.newCall(request).execute();
+        String jsonResponse = response.body().string();
+        ObjectMapper objectMapper = new ObjectMapper();
+        Stock stock = objectMapper.readValue(jsonResponse, Stock.class);
+        stockService.save(stock);
+        return new ResponseEntity<>(stock,HttpStatus.OK);
+    }
 }

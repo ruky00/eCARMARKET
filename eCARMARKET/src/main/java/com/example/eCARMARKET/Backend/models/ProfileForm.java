@@ -3,6 +3,8 @@ package com.example.eCARMARKET.Backend.models;
 import org.springframework.security.core.parameters.P;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ProfileForm {
@@ -15,9 +17,7 @@ public class ProfileForm {
 
     private String org;
 
-    private String thingsToDo;
-
-    private String favCompany;
+    private ArrayList<String> favCompany;
 
     private boolean allowOverview;
 
@@ -56,19 +56,11 @@ public class ProfileForm {
         this.org = org;
     }
 
-    public String getThingsToDo() {
-        return thingsToDo;
-    }
-
-    public void setThingsToDo(String thingsToDo) {
-        this.thingsToDo = thingsToDo;
-    }
-
-    public String getFavCompany() {
+    public ArrayList<String> getFavCompany() {
         return favCompany;
     }
 
-    public void setFavCompany(String favCompany) {
+    public void setFavCompany(ArrayList<String> favCompany) {
         this.favCompany = favCompany;
     }
 
@@ -82,10 +74,9 @@ public class ProfileForm {
 
     public ProfileForm(){}
 
-    public ProfileForm(String rol,String org, String thingsToDo,String favCompany, boolean allowOverview){
+    public ProfileForm(String rol, String org, ArrayList<String> favCompany, boolean allowOverview){
         this.rol=rol;
         this.org=org;
-        this.thingsToDo=thingsToDo;
         this.favCompany=favCompany;
         this.allowOverview=allowOverview;
     }
