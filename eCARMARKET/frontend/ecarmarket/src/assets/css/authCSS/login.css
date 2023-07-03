@@ -85,13 +85,13 @@ input, button{
 	text-transform: uppercase;
 	font-weight: 600;
 	font-family: 'Nunito', sans-serif;
-	background: -webkit-linear-gradient(right, var(--half-baked-900), var(--corn-field-400));
-  	transition: all 0.4s;
+	background: linear-gradient(90deg, var(--half-baked-900), transparent) var(--half-baked-500);
+	background-size: 200% auto;
+	transition: background-color 1s;
 }
 
-.submit:hover{
-	background: -webkit-linear-gradient(left, var(--half-baked-900), var(--corn-field-400));
-	transition: all 0.4s;
+.submit:hover, .submit:focus{
+	background-color: var(--corn-field-400);
 }
 
 .forgot-pass{
@@ -257,6 +257,13 @@ input, button{
 	font-size: 15px;
 	cursor: pointer;
 	box-sizing: border-box;
+	border-radius: 30px;
+	transition: all 1s;
+}
+
+.img-btn:hover{
+	background-color: #fff;
+	color: black;
 }
   
 .img-btn:after{
