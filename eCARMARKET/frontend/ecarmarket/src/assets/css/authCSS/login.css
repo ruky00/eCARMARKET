@@ -35,20 +35,20 @@ input, button{
 	background-image: linear-gradient(to right, var(--half-baked-50), var(--half-baked-900));
 }
 
-h2{
+.cont h2{
 	width: 100%;
 	font:30px var(--titles);
 	text-align: center;
 }
 
-label{
+.cont label{
 	display: block;
 	width: 260px;
 	margin: 25px auto 0;
 	text-align: center;
 }
 
-label span{
+.cont label span{
 	font-size: 14px;
 	font-weight: 600;
 	color: #2e333a;
@@ -56,7 +56,7 @@ label span{
 	font-family: var(--titles);
 }
 
-input{
+.cont input{
 	display: block;
 	width: 100%;
 	margin-top: 5px;
@@ -67,7 +67,7 @@ input{
 	font-family: var(--text); 
 }
 
-button{
+.cont button{
 	display: block;
 	margin: 0 auto;
 	width: 260px;
@@ -76,6 +76,7 @@ button{
 	color: #fff;
 	font-size: 15px;
 	cursor: pointer;
+	margin-top: 40px;
 }
 
 .submit{
@@ -84,11 +85,13 @@ button{
 	text-transform: uppercase;
 	font-weight: 600;
 	font-family: 'Nunito', sans-serif;
-	background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+	background: -webkit-linear-gradient(right, var(--half-baked-900), var(--corn-field-400));
+  	transition: all 0.4s;
 }
 
 .submit:hover{
-	background: -webkit-linear-gradient(left, #b224ef, #7579ff);
+	background: -webkit-linear-gradient(left, var(--half-baked-900), var(--corn-field-400));
+	transition: all 0.4s;
 }
 
 .forgot-pass{
@@ -101,7 +104,7 @@ button{
 }
 
 .forgot-pass:hover{
-	color: red;
+	color: var(--corn-field-100);
 }
 
 .social-media{
