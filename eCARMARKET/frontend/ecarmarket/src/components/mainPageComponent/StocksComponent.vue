@@ -79,17 +79,13 @@
                         .attr("transform", `translate(${margin.left},${margin.top})`);
 
                 // Create a dataset
-                
-                /* async function fetchData() {
-                    const response = await fetch('/s1.json');//const response = await fetch(`http://localhost:8081/api/monthly?symbol=${graphId}`);//
-                    const json = await response.json();
-                    return json;
-                } */
 
                 var url = '/s1.json'//'http://localhost:8081/api/monthly?symbol=' + graphId;
 
                 window.$.getJSON(url, function(jsonData) {
                     const dataset = [];
+
+                    console.log(jsonData)
 
                     Object.keys(jsonData["Time Series (Daily)"]).forEach(key => {
                         dataset.push({ date: new Date(key), value: jsonData["Time Series (Daily)"][key]["4. close"]})
@@ -110,14 +106,14 @@
 
                     svg.append("g")
                         .attr("transform", `translate(0,${height})`)
-                        .call(window.d3.axisBottom(x)
-                            .ticks(window.d3.timeYear.every(1))
-                            .tickFormat(window.d3.timeFormat("%b %Y")))
+                        .call(window.d3.axisBottom(x))
+                        .attr("stroke-width", 4);
 
                     // Add the y-axis
 
                     svg.append("g")
                         .call(window.d3.axisLeft(y))
+                        .attr("stroke-width", 4)
 
                     // Create the line generator
 
@@ -131,7 +127,7 @@
                         .datum(dataset)
                         .attr("fill", "none")
                         .attr("stroke", "steelblue")
-                        .attr("stroke-width", 1)
+                        .attr("stroke-width", 5)
                         .attr("d", line)
                 });
             },

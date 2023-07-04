@@ -45,6 +45,7 @@
 
 .stocks .center {
     transform: translateX(0);
+    pointer-events: none;
 }
 
 .stocks .left {

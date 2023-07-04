@@ -3,7 +3,7 @@
         <div class="intro">
             <h1>A solution for Investors, Analysts and Industry Leaders</h1>
             <div class="start-here">
-                <router-link to="/login"><button type="button">Start Here</button></router-link>
+                <router-link to="/register"><button type="button">Start Here</button></router-link>
                 <button type="button" onclick="location.href='/register'" class="button-arrow"><img
                         src="../../assets/images/arrow.png" alt=""></button>
             </div>
