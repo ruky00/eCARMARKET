@@ -13,8 +13,8 @@ public class MarketService {
     @Autowired
     private MarketRepository marketRepository;
 
-    public Optional<Market> findByCountryName(String countryName) {
-        return marketRepository.findByCountryName(countryName);
+    public Optional<Market> findByCountryName(String id) {
+        return marketRepository.findById(id);
     }
 
 }
