@@ -29,7 +29,5 @@ export default {
 </script>
 
 <style>
-@import "../../assets/css/variables.css";
-@import "../../assets/css/common.css";
 @import "../../assets/css/mainPageCSS/waves.css";
 </style>
