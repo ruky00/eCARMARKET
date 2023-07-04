@@ -1,0 +1,78 @@
+.info {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.info .username {
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+}
+
+.info .username img{
+    height: 150px;
+}
+
+.info .username input, .info .email input, .info .password input, .info .buttons input{
+    font-size: 40px;
+    margin-top: 50px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+}
+
+.info input::placeholder{
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.info .password {
+    display: flex;
+    gap: 50px;
+}
+
+.info .position {
+    height: fit-content;
+    min-height: 200px;
+}
+
+.info .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+.info .buttons, .info .password {
+    margin-bottom: 50px;
+}
+
+.info #save, .info #clear {
+    width: 200px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 20px;
+}
+
+.info #save {
+	background: linear-gradient(90deg, var(--half-baked-900), transparent) var(--half-baked-500);
+	background-size: 200% auto;
+	transition: background-color 1s;
+}
+
+.info #save:hover {
+	background-color: var(--corn-field-400);
+}
+
+.info #clear {
+	background: linear-gradient(90deg, var(--half-baked-900), transparent) var(--half-baked-500);
+	background-size: 200% auto;
+	transition: background-color 1s;
+}
+
+.info #clear:hover {
+	background-color: red;
+}
