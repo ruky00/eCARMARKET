@@ -23,6 +23,11 @@ const routes =createRouter({
          component: () => import('../src/components/userComponents/UserProfileComponent')
       },
       {
+         path:'/userHome',
+         name:'userHome',
+         component: () => import('../src/components/userComponents/UserHomeComponent')
+      },
+      {
          path:'/:pathMatch(.*)*',
          component: () => import('../src/components/erroComponents/404Component')
       },

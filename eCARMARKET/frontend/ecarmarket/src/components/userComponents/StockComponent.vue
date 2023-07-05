@@ -1,63 +1,35 @@
 <template>
-    <div id="second-section">
-        <h2>THE STOCK MARKET WITHIN YOUR REACH</h2>
-        <div class="stocks">
-            <div alt="" id="TSLA" class="not-focused left" @click="changeState('TSLA')">
-                <h2 id="TSLAName"></h2>
-            </div>
-            <div alt="" id="BYDDF" class="focused center" @click="changeState('BYDDF')">
-                <h2 id="BYDDFName"></h2>
-            </div>
-            <div alt="" id="IBM" class="not-focused right" @click="changeState('IBM')">
-                <h2 id="IBMName"></h2>
-            </div>
+    <div class="stock">
+        <div class="buttons">
+            <button type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+        </div>
+        <div class="graph" id="graph">
+            <h2 id="graphName"></h2>
         </div>
     </div>
-
-    <div id="secondToThird" class="spacer"></div>
 </template>
 
-
 <script>
-    export default{
-        name: 'StocksComponent',
+    export default {
+        name: 'StockComponent',
         mounted() {
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
             script.onload = () => {
-                this.generateGraph("TSLA");
-                this.generateGraph("BYDDF");
-                this.generateGraph("IBM");
+                this.generateGraph("graph");
             };
             document.head.appendChild(script);
-
-            window.addEventListener('resize', this.updateSvgSize);
         },
         methods: {
-            changeState(clickedId) {
-                var centerId = document.getElementsByClassName('focused')[0].id;
-                var clickedClass = document.getElementById(clickedId).classList[1];
-
-                if(centerId !== clickedId) {
-                    document.getElementById(clickedId).classList.remove('not-focused');
-                    document.getElementById(clickedId).classList.remove(clickedClass);
-                    document.getElementById(clickedId).classList.add('focused');
-                    document.getElementById(clickedId).classList.add('center');
-
-                    document.getElementById(centerId).classList.remove('focused');
-                    document.getElementById(centerId).classList.remove('center');
-                    document.getElementById(centerId).classList.add('not-focused');
-                    document.getElementById(centerId).classList.add(clickedClass);
-                }
-            },
-
             async generateGraph(graphId) {
                 // Set dimensions and margins for the chart
 
-                const margin = { top: 10, right: 0, bottom: 40, left: 0 };
+                const margin = { top: 10, right: 0, bottom: 40, left: 40 };
 
-                const width = 900 - margin.left - margin.right;
+                const width = 950 - margin.left - margin.right;
                 const height = 400 - margin.top - margin.bottom;
 
                 // Set uo the x and y scales
@@ -73,8 +45,6 @@
                 const svg = window.d3.select(`#${graphId}`)
                     .append("svg")
                         .attr("viewBox", "0 0 900 400")
-                        .attr("width", width + margin.left + margin.right)
-                        .attr("height", height + margin.top + margin.bottom)
                     .append("g")
                         .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -84,8 +54,6 @@
 
                 window.$.getJSON(url, function(jsonData) {
                     const dataset = [];
-
-                    console.log(jsonData)
 
                     Object.keys(jsonData["Time Series (Daily)"]).forEach(key => {
                         dataset.push({ date: new Date(key), value: jsonData["Time Series (Daily)"][key]["4. close"]})
@@ -136,5 +104,5 @@
 </script>
 
 <style>
-    @import "@/assets/css/mainPageCSS/stocksComponent.css";
+    @import "../../assets/css/userCSS/stockComponent.css";
 </style>

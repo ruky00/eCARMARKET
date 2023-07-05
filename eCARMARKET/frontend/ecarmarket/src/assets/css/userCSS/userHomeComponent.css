@@ -1,0 +1,31 @@
+.first-section {
+    padding: 150px 50px 50px 50px;
+    display: flex;
+    justify-content: center;
+    gap: 50px
+}
+
+.first-section .left{
+    height: 800px;
+    width: calc(50% - 40px);
+    padding: 20px;
+}
+
+.first-section .left, .first-section .right1, .first-section .right2{
+    background-color: var(--half-baked-300);
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--half-baked-900);
+}
+
+.first-section .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.first-section .right1, .first-section .right2 {
+    height: 45%;
+    width: 100%;
+    padding: 10px;
+}
