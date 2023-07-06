@@ -12,8 +12,15 @@
                 <StockComponent graphId="graphRight" graphName="graphRightName"></StockComponent>
             </div>
         </div>
-
     </div>    
+    <div class="second-section">
+        <div class="left">
+
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
     <FooterComponent></FooterComponent>
 </template>
 

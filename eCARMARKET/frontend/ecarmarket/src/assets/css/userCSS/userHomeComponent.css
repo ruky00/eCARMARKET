@@ -39,6 +39,32 @@
     color: var(--corn-field-100)
 }
 
-.right2 h2{
+.first-section .right2 h2{
     font-size: 1vw;
+}
+
+.second-section {
+    padding: 150px 50px 50px 50px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    height: 46.5vw;
+}
+
+.second-section .left{
+    height: 45vw;
+    width: calc(50% - 40px);
+    padding: 20px;
+}
+
+.second-section .right{
+    height: 45vw;
+    width: calc(50% - 40px);
+    padding: 20px;
+}
+
+.second-section .left, .second-section .right{
+    background-color: var(--half-baked-300);
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--half-baked-900);
 }
