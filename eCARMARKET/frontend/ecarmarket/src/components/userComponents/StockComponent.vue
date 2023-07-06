@@ -1,12 +1,12 @@
 <template>
     <div class="stock">
         <div class="buttons">
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
+            <button type="button" @click="changeGraph('TSLA')">1</button>
+            <button type="button" @click="changeGraph('IBM')">2</button>
+            <button type="button" @click="changeGraph('BYDDF')">3</button>
         </div>
-        <div class="graph" id="graph">
-            <h2 id="graphName"></h2>
+        <div class="graph" :id="graphId">
+            <h2 :id="graphName"></h2>
         </div>
     </div>
 </template>
@@ -14,12 +14,22 @@
 <script>
     export default {
         name: 'StockComponent',
+        props: {
+            graphId: {
+                type: String,
+                required: true
+            },
+            graphName: {
+                type: String,
+                required: true
+            }
+        },
         mounted() {
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
             script.onload = () => {
-                this.generateGraph("graph");
+                this.generateGraph(this.graphId);
             };
             document.head.appendChild(script);
         },
@@ -42,11 +52,18 @@
 
                 // Create the SVG element and append it to the chart container
 
+                console.log(graphId);
+
                 const svg = window.d3.select(`#${graphId}`)
                     .append("svg")
                         .attr("viewBox", "0 0 900 400")
+                        .attr("id", `${graphId}Svg`)
                     .append("g")
                         .attr("transform", `translate(${margin.left},${margin.top})`);
+
+                if (graphId === "graphRight") {
+                    window.d3.select("#graphRightSvg").attr("height", "15vw")
+                }
 
                 // Create a dataset
 
@@ -99,6 +116,10 @@
                         .attr("d", line)
                 });
             },
+
+            async changeGraph(name) {
+                document.getElementById(`${this.graphId}Name`).innerHTML = name
+            }
         }
     }
 </script>

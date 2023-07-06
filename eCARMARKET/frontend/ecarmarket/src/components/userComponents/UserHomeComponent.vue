@@ -2,14 +2,14 @@
     <HeaderComponent></HeaderComponent>
     <div class="first-section">
         <div class="left">
-            <StockComponent></StockComponent>
+            <StockComponent graphId="graphLeft" graphName="graphLeftName"></StockComponent>
         </div>
         <div class="right">
             <div class="right1">
                 <NewsComponent></NewsComponent>
             </div>
             <div class="right2">
-
+                <StockComponent graphId="graphRight" graphName="graphRightName"></StockComponent>
             </div>
         </div>
 
