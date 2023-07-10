@@ -37,7 +37,7 @@ public class UserLoginService {
 
 	public ResponseEntity<AuthResponse> login(LoginRequest loginRequest, String encryptedAccessToken, String 
 			encryptedRefreshToken) {
-		
+
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -52,7 +52,9 @@ public class UserLoginService {
 		Boolean accessTokenValid = jwtTokenProvider.validateToken(accessToken);
 		Boolean refreshTokenValid = jwtTokenProvider.validateToken(refreshToken);
 
+
 		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Access-Control-Expose-Headers", "Set-Cookie");
 		Token newAccessToken;
 		Token newRefreshToken;
 		if (!accessTokenValid && !refreshTokenValid) {

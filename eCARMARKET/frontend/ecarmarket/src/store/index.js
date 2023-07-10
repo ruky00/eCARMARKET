@@ -1,21 +1,25 @@
 import { createStore } from "vuex";
 import AuthService from '../services/auth.service';
-
-//import { auth } from "./auth.module";
+import UserService from '../services/user.service';
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
   ? { status: { loggedIn: true }, user }
   : { status: { loggedIn: false }, user: null };
 const store = createStore({
-  //modules: {
-    //auth,
-  //},
-
-
-
+ 
   namespaced: true,
   state: initialState,
   actions: {
+    getPersonal(user){
+        return UserService.getProfile(user).then(
+            user=>{
+                return Promise.resolve(user)
+            },
+            error=>{
+                return Promise.reject(error)
+            }
+        );
+    },
     login({ commit }, user) {
       return AuthService.login(user).then(
         user => {
