@@ -40,3 +40,21 @@
     justify-content: center;
     height: inherit;
 }
+
+.graph .moveLeft {
+    transform: translateX(-1300px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.graph .moveMid {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 1s;
+}
+
+.graph .moveRight {
+    transform: translateX(1300px);
+    opacity: 0;
+    transition: all 1s;
+}
