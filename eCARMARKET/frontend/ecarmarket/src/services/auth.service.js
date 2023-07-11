@@ -7,7 +7,8 @@ class AuthService {
     return fetch(API_URL + 'login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true'
         },
         body: JSON.stringify({
           username: user.username,
@@ -16,12 +17,20 @@ class AuthService {
       })
         .then(response => {
             console.log(response);
+            const cookies = response.headers.get('Set-Cookie');
+            console.log(cookies);
+            const cookiesFromDocument = document.cookie;
+            console.log(cookiesFromDocument);
             return response.json();
         })
         .then(data => {
             console.log(data);
             return data;
           });
+  }
+
+  async getToken() {
+    
   }
 
   logout() {

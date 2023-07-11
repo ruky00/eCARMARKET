@@ -33,6 +33,9 @@ public class UserLoginService {
 	@Autowired
 	private JwtCookieManager cookieUtil;
 
+	@Autowired
+	private HttpSession httpSession;
+
 
 
 	public ResponseEntity<AuthResponse> login(LoginRequest loginRequest, String encryptedAccessToken, String 

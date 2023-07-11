@@ -12,24 +12,43 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.example.eCARMARKET.Backend.models.User;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:8080", methods = RequestMethod.POST)
+@CrossOrigin(origins = "http://localhost:8080", methods = {RequestMethod.POST, RequestMethod.GET}, allowCredentials = "true")
 public class LoginController {
 
     @Autowired
     private UserLoginService userService;
+    
+    @Autowired
+    private HttpSession httpSession;
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(
             @CookieValue(name = "accessToken", required = false) String accessToken,
             @CookieValue(name = "refreshToken", required = false) String refreshToken,
             @RequestBody LoginRequest loginRequest) {
-        return userService.login(loginRequest, accessToken, refreshToken);
+            ResponseEntity<AuthResponse> request = userService.login(loginRequest, accessToken, refreshToken);
+			httpSession.setAttribute("token", accessToken);
+            System.out.println("--------------| " + accessToken + " |--------------");
+        return request;
     }
+
+    @GetMapping("/getToken")
+    public ResponseEntity<String> getValueFromSession() {
+        // Retrieve the value from the session
+        String value = (String) httpSession.getAttribute("token");
+
+        if (value != null) {
+            return ResponseEntity.ok(value);
+        } else {
+            return ResponseEntity.notFound().build();
+    }
+}
 
     /* @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody User user) {
