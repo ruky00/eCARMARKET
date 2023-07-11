@@ -4,7 +4,6 @@ import com.example.eCARMARKET.Backend.models.stocks.Stock;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Profile {
@@ -19,7 +18,7 @@ public class Profile {
     private List<Stock> stocks;
 
     @OneToMany
-    private List<Market> markets;
+    private List<MarketData> marketData;
 
     @OneToMany
     private List<GlobalDataSection> globalDataSections;
@@ -36,9 +35,9 @@ public class Profile {
 
 
 
-    public List<Market> getMarkets(){ return markets; }
+    public List<MarketData> getMarkets(){ return marketData; }
 
-    public void setMarkets(List<Market> markets){ this.markets = markets; }
+    public void setMarkets(List<MarketData> marketData){ this.marketData = marketData; }
 
     public List<GlobalDataSection> getGlobalInformation(){ return globalDataSections; }
 

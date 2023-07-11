@@ -1,10 +1,11 @@
 package com.example.eCARMARKET.Backend.models;
 
-import javax.persistence.Entity;
+import org.springframework.data.elasticsearch.annotations.Document;
+
 import javax.persistence.Id;
 
-@Entity
-public class Market {
+@Document(indexName = "markets")
+public class MarketData {
     @Id
     private String _id;
 
@@ -60,8 +61,8 @@ public class Market {
 
     public void setValue(double value) { this.value = value; }
 
-    public Market(String _id, String region, String category, String parameter, String mode, String powerTrain,
-                  int year, String unit, double value) {
+    public MarketData(String _id, String region, String category, String parameter, String mode, String powerTrain,
+                      int year, String unit, double value) {
         this._id = _id;
         this.region = region;
         this.category = category;
