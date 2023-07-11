@@ -32,10 +32,7 @@ public class LoginController {
             @CookieValue(name = "accessToken", required = false) String accessToken,
             @CookieValue(name = "refreshToken", required = false) String refreshToken,
             @RequestBody LoginRequest loginRequest) {
-            ResponseEntity<AuthResponse> request = userService.login(loginRequest, accessToken, refreshToken);
-			httpSession.setAttribute("token", accessToken);
-            System.out.println("--------------| " + accessToken + " |--------------");
-        return request;
+        return userService.login(loginRequest, accessToken, refreshToken);
     }
 
     @GetMapping("/getToken")
