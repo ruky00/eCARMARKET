@@ -21,17 +21,6 @@ public class ProfileForm {
 
     private boolean allowOverview;
 
-    @OneToOne(mappedBy = "profileForm")
-    private Client client;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public long getId() {
         return id;
     }
