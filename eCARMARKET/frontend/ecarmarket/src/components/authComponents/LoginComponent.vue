@@ -97,11 +97,10 @@ export default {
 				() => {
 					(this.$store.dispatch("getPersonal",user).then(
 						response=>{
-							console.log(response)
-							if(response != null){
-								this.$router.push("/home");
+							if(response.profileForm != null){
+								this.$router.push("/userHome");
 							}else{
-								this.$router.push('/profile')
+								this.$router.push('/form')
 							}
 						}
 

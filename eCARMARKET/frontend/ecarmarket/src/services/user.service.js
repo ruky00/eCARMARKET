@@ -9,7 +9,20 @@ class UserService {
   }
 
   getProfile() {
-    return axios.get(API_URL + 'me', { headers: authHeader() });
+    return fetch(API_URL + 'me', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': 'true'
+      },
+      credentials: 'include'
+    })
+      .then(response => {
+          return response.json();
+      })
+      .then(data => {
+          return data;
+        });
   }
 
   getModeratorBoard() {

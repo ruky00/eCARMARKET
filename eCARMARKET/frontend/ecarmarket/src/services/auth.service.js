@@ -18,10 +18,6 @@ class AuthService {
       })
         .then(response => {
             console.log(response);
-            const cookies = response.headers.get('Set-Cookie');
-            console.log(cookies);
-            const cookiesFromDocument = document.cookie;
-            console.log(cookiesFromDocument);
             return response.json();
         })
         .then(data => {
