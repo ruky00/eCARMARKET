@@ -22,3 +22,7 @@
 #secondToThird {
     background-image: url("../../../assets/images/waves/secondToThirdSection.svg");
 }
+
+#firstToSecond svg, #secondToThird svg {
+    pointer-events: none;
+}
