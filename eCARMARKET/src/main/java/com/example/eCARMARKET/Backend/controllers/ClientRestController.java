@@ -149,6 +149,7 @@ public class ClientRestController {
         if(principal != null){
             Client client = userService.findByEmail(principal.getName()).orElseThrow();
             client.setProfileForm(profileForm);
+            userService.save(client);
         }  URI location = fromCurrentRequest().path("")
                 .buildAndExpand(profileForm.getId()).toUri();
         return ResponseEntity.created(location).body(profileForm);
