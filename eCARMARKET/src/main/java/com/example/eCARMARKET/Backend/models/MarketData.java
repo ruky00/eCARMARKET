@@ -2,32 +2,33 @@ package com.example.eCARMARKET.Backend.models;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 @Document(indexName = "markets")
 public class MarketData {
     @Id
-    private String _id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String region;
 
     private String category;
 
-    private String parameter;
+    private String marketDataParameter;
 
     private String mode;
 
     private String powerTrain;
 
-    private int year;
+    private int marketDataYear;
 
     private String unit;
 
-    private double value;
-
-    public String get_id() { return _id; }
-
-    public void set_id(String _id) { this._id = _id; }
+    private double marketDataValue;
 
     public String getRegion() { return region; }
 
@@ -37,9 +38,9 @@ public class MarketData {
 
     public void setCategory(String category) { this.category = category; }
 
-    public String getParameter() { return parameter; }
+    public String getParameter() { return marketDataParameter; }
 
-    public void setParameter(String parameter) { this.parameter = parameter; }
+    public void setParameter(String parameter) { this.marketDataParameter = parameter; }
 
     public String getMode() { return mode; }
 
@@ -49,28 +50,27 @@ public class MarketData {
 
     public void setPowerTrain(String powerTrain) { this.powerTrain = powerTrain; }
 
-    public int getYear() { return year; }
+    public int getYear() { return marketDataYear; }
 
-    public void setYear(int year) { this.year = year; }
+    public void setYear(int year) { this.marketDataYear = year; }
 
     public String getUnit() { return unit; }
 
     public void setUnit(String unit) { this.unit = unit; }
 
-    public double getValue() { return value; }
+    public double getValue() { return marketDataValue; }
 
-    public void setValue(double value) { this.value = value; }
+    public void setValue(double value) { this.marketDataValue = value; }
 
-    public MarketData(String _id, String region, String category, String parameter, String mode, String powerTrain,
-                      int year, String unit, double value) {
-        this._id = _id;
+    public MarketData(String region, String category, String marketDataParameter, String mode, String powerTrain,
+                      int marketDataYear, String unit, double marketDataValue) {
         this.region = region;
         this.category = category;
-        this.parameter = parameter;
+        this.marketDataParameter = marketDataParameter;
         this.mode = mode;
         this.powerTrain = powerTrain;
-        this.year = year;
+        this.marketDataYear = marketDataYear;
         this.unit = unit;
-        this.value = value;
+        this.marketDataValue = marketDataValue;
     }
 }
