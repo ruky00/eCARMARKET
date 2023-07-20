@@ -5,11 +5,11 @@
             <div alt="" id="TSLA" class="not-focused left" @click="changeState('TSLA')">
                 <h2 id="TSLAName"></h2>
             </div>
-            <div alt="" id="BYDDF" class="focused center" @click="changeState('BYDDF')">
-                <h2 id="BYDDFName"></h2>
+            <div alt="" id="FORD" class="focused center" @click="changeState('FORD')">
+                <h2 id="FORDName"></h2>
             </div>
-            <div alt="" id="IBM" class="not-focused right" @click="changeState('IBM')">
-                <h2 id="IBMName"></h2>
+            <div alt="" id="VLVOF" class="not-focused right" @click="changeState('VLVOF')">
+                <h2 id="VLVOFName"></h2>
             </div>
         </div>
     </div>
@@ -27,12 +27,10 @@
             script.async = true;
             script.onload = () => {
                 this.generateGraph("TSLA");
-                this.generateGraph("BYDDF");
-                this.generateGraph("IBM");
+                this.generateGraph("FORD");
+                this.generateGraph("VLVOF");
             };
             document.head.appendChild(script);
-
-            window.addEventListener('resize', this.updateSvgSize);
         },
         methods: {
             changeState(clickedId) {
@@ -80,22 +78,17 @@
 
                 // Create a dataset
 
-                var url = '/s1.json'//'http://localhost:8081/api/monthly?symbol=' + graphId;
+                var url = `/${graphId}.json`//'http://localhost:8081/api/monthly?symbol=' + graphId;
 
                 window.$.getJSON(url, function(jsonData) {
                     const dataset = [];
 
-                    console.log(jsonData)
+                    const data = jsonData["Monthly Time Series"];
 
-                    Object.keys(jsonData["Time Series (Daily)"]).forEach(key => {
-                        dataset.push({ date: new Date(key), value: jsonData["Time Series (Daily)"][key]["4. close"]})
+                    Object.keys(data).forEach(key => {
+                        dataset.push({ date: new Date(key), value: data[key]["4. close"]})
                     });
                     document.getElementById(`${graphId}Name`).innerHTML = jsonData["Meta Data"]["2. Symbol"];
-
-                    /* Object.keys(jsonData["Monthly Time Series"]).forEach(key => {
-                        dataset.push({ date: new Date(key), value: jsonData["Monthly Time Series"][key]["4. close"]})
-                    });
-                    document.getElementById(`${graphId}Name`).innerHTML = jsonData["Meta Data"]["2. Symbol"]; */
 
                     // Define the x and y domains
 

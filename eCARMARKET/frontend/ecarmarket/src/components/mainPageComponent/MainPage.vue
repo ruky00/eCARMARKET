@@ -1,5 +1,5 @@
 <template>  
-    <HeaderComponent/>
+    <HeaderComponent headerId="mainPage"/>
     <HomeComponent/>
     <StocksComponent/>
     <PartnersComponent/>

@@ -1,6 +1,6 @@
 <template>
 
-    <header id="sticky-header" @scroll="headerScroll">
+    <header :id="headerId" @scroll="headerScroll">
         <a href="/"><img class="logo" src="../../assets/images/logo_yellow.png" alt="Logo"></a>
         <SearchBarComponent/>
             <nav>
@@ -44,24 +44,39 @@ export default{
     components:{
         SearchBarComponent,
     },
+    props: {
+        headerId: {
+            type: String,
+            required: true,
+        },
+    },
     mounted () {
         window.addEventListener('scroll', this.headerScroll);
         window.addEventListener('scroll', this.hideSidePanel);
         window.addEventListener('load', this.hideSidePanel);
         window.addEventListener('load', this.changeVisibility);
+
+        this.showSearchBar();
     },
     methods: {
+        showSearchBar() {
+            if (this.headerId == 'mainPage'){
+                const header = document.getElementById(this.headerId);
+                const form = header.getElementsByTagName('form')[0];
+                form.style.display = 'none';
+            }
+        },
         headerScroll() {
             var tag = "header-color"
             try {
                 if (window.pageYOffset > 5)
-                    document.getElementById('sticky-header').classList.add(tag);
+                    document.getElementById(this.headerId).classList.add(tag);
 
                 else
-                    document.getElementById('sticky-header').classList.remove(tag);
+                    document.getElementById(this.headerId).classList.remove(tag);
             }
-            catch {
-                tag = "";
+            catch (e){
+                console.log(e);
             }
         },
         hideSidePanel() {

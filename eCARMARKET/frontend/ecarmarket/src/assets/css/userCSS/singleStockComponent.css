@@ -1,0 +1,5 @@
+.stock {
+    grid-template: 
+        'graph';
+    grid-template-rows: auto; 
+}
