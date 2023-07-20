@@ -1,9 +1,9 @@
 <template>
     <div class="stock">
         <div class="buttons" id="buttons">
-            <button type="button" class="selected" id='1' @click="moveGraph('1')">1</button>
-            <button type="button" id='2' @click="moveGraph('2')">2</button>
-            <button type="button" id='3' @click="moveGraph('3')">3</button>
+            <button type="button" class="selected" :id="button1"></button>
+            <button type="button" :id="button2"></button>
+            <button type="button" :id="button3"></button>
         </div>
         <div class="graph" :id="graphId">
         </div>
@@ -22,6 +22,18 @@
             graphName: {
                 type: String,
                 required: true
+            },
+            button1: {
+                type: String,
+                required: true
+            },
+            button2: {
+                type: String,
+                required: true
+            },
+            button3: {
+                type: String,
+                required: true
             }
         },
         data () {
@@ -32,7 +44,7 @@
                 y: '',
                 svg: '',
                 height: '',
-                currentId: '',
+                currentId: '1',
             }    
         },
         mounted() {
@@ -40,13 +52,61 @@
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
             script.onload = () => {
-                this.generateGraph();
+                this.searchStockSymbol(['Tesla', 'Volvo', 'Ford']);
             };
             document.head.appendChild(script);
         },
         methods: {
-            generateGraph(id='1', pos='moveMid') {
-                this.currentId = id;
+            loadCompanies() {
+
+                window.$.getJSON('http://localhost:8081/api/me/profile', (profile) => {
+                    this.searchStockSymbol(profile.favCompany);
+                });
+            },
+            searchStockSymbol(companiesArray) {
+
+                window.$.getJSON('/companies.json', (companies) => {
+                    var stockSymbols = [];
+                    for (let i = 0; i < companiesArray.length; i++) {
+                        stockSymbols.push(companies[companiesArray[i]]);
+                    }
+
+                    if (this.graphId === 'graphLeft') {
+                        this.currentId = 'l1';
+                        var lElement = document.getElementById('l1');
+                        lElement.innerHTML = stockSymbols[0];
+                        lElement.addEventListener('click', () => this.moveGraph('l1', stockSymbols[0]));
+
+                        lElement = document.getElementById('l2');
+                        lElement.innerHTML = stockSymbols[1];
+                        lElement.addEventListener('click', () => this.moveGraph('l2', stockSymbols[1]));
+
+                        lElement = document.getElementById('l3');
+                        lElement.innerHTML = stockSymbols[2];
+                        lElement.addEventListener('click', () => this.moveGraph('l3', stockSymbols[2]));
+
+                        this.generateGraph(stockSymbols[0]);
+                    }
+                    else if (this.graphId === 'graphRight') {
+                        this.currentId = 'r1';
+                        var rElement = document.getElementById('r1');
+                        rElement.innerHTML = stockSymbols[0];
+                        rElement.addEventListener('click', () => this.moveGraph('r1', stockSymbols[0]));
+
+                        rElement = document.getElementById('r2');
+                        rElement.innerHTML = stockSymbols[1];
+                        rElement.addEventListener('click', () => this.moveGraph('r2', stockSymbols[1]));
+
+                        rElement = document.getElementById('r3');
+                        rElement.innerHTML = stockSymbols[2];
+                        rElement.addEventListener('click', () => this.moveGraph('r3', stockSymbols[2]));
+
+                        this.generateGraph(stockSymbols[0]);
+                    }
+                });
+            },
+            generateGraph(symbol, pos='moveMid') {
+
                 document.getElementById(`${this.graphId}`).innerHTML = '';
 
 
@@ -83,27 +143,10 @@
                 if (this.graphId === "graphRight") {
                     window.d3.select("#graphRightSvg").attr("height", "15vw")
                 }
-                
-                // Get the current date
-                var today = new Date();
-
-                // Substract 1 day from the current date
-                today.setDate(today.getDate() - 1);
-
-                // Get the year, month and day components
-                const year = today.getFullYear();
-                const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
-                const day = today.getDate().toString().padStart(2, '0');
-
-                // Format the date string in YYYY-MM-DD format
-
-                const yesterday = `${year}-${month}-${day}`
-
-                console.log(yesterday)
 
                 // Create a dataset
 
-                var url = `/s${id}.json`//'http://localhost:8081/api/monthly?symbol=' + graphId;
+                var url = `/${symbol}.json`//'http://localhost:8081/api/monthly?symbol=' + graphId;
 
                 window.$.getJSON(url, (jsonData) => {
                     var data = [];
@@ -199,8 +242,7 @@
                 });
             },
 
-            moveGraph(id) {
-
+            moveGraph(id, symbol) {
                 if (this.currentId < id) {
 
                     const currentSvgOld = document.getElementById(`${this.graphId}Svg`);
@@ -212,7 +254,7 @@
                     currentH2Old.classList.add('moveLeft');
 
                     setTimeout(() => {
-                        this.generateGraph(id, 'moveRight');
+                        this.generateGraph(symbol, 'moveRight');
                         setTimeout(() => {
                             const currentSvgOld = document.getElementById(`${this.graphId}Svg`);
                             currentSvgOld.classList.remove('moveRight');
@@ -234,7 +276,7 @@
                     currentH2Old.classList.add('moveRight');
 
                     setTimeout(() => {
-                        this.generateGraph(id, 'moveLeft');
+                        this.generateGraph(symbol, 'moveLeft');
                         setTimeout(() => {
                             const currentSvgOld = document.getElementById(`${this.graphId}Svg`);
                             currentSvgOld.classList.remove('moveLeft');
@@ -247,8 +289,9 @@
                     }, 500);
                 }
 
-                document.getElementById(this.currentId).classList.remove('selected');
-                document.getElementById(id).classList.add('selected');
+                    document.getElementById(this.currentId).classList.remove('selected');
+                    document.getElementById(id).classList.add('selected');
+                    this.currentId = id;
             }
         }
     }

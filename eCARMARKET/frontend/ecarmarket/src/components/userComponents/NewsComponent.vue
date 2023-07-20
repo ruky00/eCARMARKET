@@ -16,7 +16,25 @@
         },
         methods: {
             async generateNews() {
-                var url = '/news.json';
+                
+                // Get the current date
+                var today = new Date();
+
+                // Substract 1 day from the current date
+                today.setDate(today.getDate() - 1);
+
+                // Get the year, month and day components
+                const year = today.getFullYear();
+                const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+                const day = today.getDate().toString().padStart(2, '0');
+
+                // Format the date string in YYYY-MM-DD format
+
+                const yesterday = `${year}-${month}-${day}`
+
+                console.log(yesterday);
+
+                var url = '/news.json'; //`https://newsapi.org/v2/everything?q=tesla&from=${yesterday}&sortBy=popularity&apiKey=7c72a80e39d84bb0b085084474b70b4e&language=en`;//
 
                 window.$.getJSON(url, function(jsonData) {
                     for (let i = 0; i < 4; i++) {
