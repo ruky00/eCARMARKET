@@ -35,9 +35,6 @@
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
-            script.onload = () => {
-                this.generateGraph('TSLA');
-            };
             document.head.appendChild(script);
 
             this.checkQuery();

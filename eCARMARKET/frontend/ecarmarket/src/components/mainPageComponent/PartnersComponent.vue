@@ -9,9 +9,9 @@
         <img src="../../assets/images/tesla.png" alt="Tesla Logo" style="width:300px; height: 285px;">
     </div>
     <div class="back">
-      <h3>Back Side One</h3>
-      <p>Content in card one</p>
-      <a href="#">Button 1</a>
+      <h3>TESLA</h3>
+      <p>Revolutionary electric vehicles and clean energy solutions.</p>
+      <a href="https://www.tesla.com/es_es" target="_blank">Go to Site</a>
     </div>
   </div>
 </div>
@@ -22,9 +22,9 @@
         <img src="../../assets/images/byd1.png" alt="BYD Logo" style="height: 200px; margin-top: 50px;">
     </div>
     <div class="back">
-      <h3>Back Side Two</h3>
-      <p>Content in card two</p>
-      <a href="#">Button 2</a>
+      <h3>BYD</h3>
+      <p>Leading the way in sustainable transportation.</p>
+      <a href="https://bydeurope.com/" target="_blank">Go to Site</a>
     </div>
   </div>
 </div>
@@ -35,9 +35,9 @@
         <img src="../../assets/images/cupra.png" alt="Cupra Logo" style="height: 200px; width: 250px; margin-top: 40px;">
     </div>
     <div class="back">
-      <h3>Back Side Three</h3>
-      <p>Content in card three</p>
-      <a href="#">Button 3</a>
+      <h3>CUPRA</h3>
+      <p>Unleashing performance and style on the road.</p>
+      <a href="https://www.cupraofficial.es/" target="_blank">Go to Site</a>
     </div>
   </div>
 </div>

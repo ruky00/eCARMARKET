@@ -4,12 +4,6 @@
         <a href="/"><img class="logo" src="../../assets/images/logo_yellow.png" alt="Logo"></a>
         <SearchBarComponent/>
             <nav>
-                <div class="links">
-                    <a href="/">Link 1</a>
-                    <a href="/">Link 2</a>
-                    <a href="/">Link 3</a>
-                    <a href="/">Link 4</a>
-                </div>
                 <div class="burger" id="burger">
                     <button class="burger-button" @click="showSidePanel">
                         <img src="../../assets/images/burger.png" alt="">
@@ -23,12 +17,6 @@
         <div class="side-panel" id="side-panel">
             <div class="close-side">
                 <button class="close-side" @click="hideSidePanel"><img src="../../assets/images/close.png" alt=""></button>
-            </div>
-            <div class="links-side">
-                <a href="/">Link 1</a>
-                <a href="/">Link 2</a>
-                <a href="/">Link 3</a>
-                <a href="/">Link 4</a>
             </div>
             <div class="user-side">
                 <a href="/login"><img class="logo" src="../../assets/images/user.png" alt="User"></a>
