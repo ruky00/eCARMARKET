@@ -50,7 +50,13 @@ export default {
                 elementHeight = 0;
             }
             var topOffset = elementHeight;
-            document.getElementById('firstToSecond').style.bottom = topOffset.toString() + "px"
+            try {
+                document.getElementById('firstToSecond').style.bottom = topOffset.toString() + "px"
+            }
+            catch {
+                return
+            }
+            
         },
         positionSpacer() {
             var elementHeight;

@@ -323,3 +323,8 @@ input, button{
 	-webkit-transform:translate3d(0, 0, 0);
 			transform:translate3d(0, 0, 0);
 }
+
+.m-up p, .m-in p {
+	margin-left: 0px;
+	margin-right: 25px;
+}
