@@ -45,6 +45,7 @@ export default{
         window.addEventListener('load', this.changeVisibility);
 
         this.showSearchBar();
+        this.changeUserRedirect();
     },
     methods: {
         showSearchBar() {
@@ -52,6 +53,12 @@ export default{
                 const header = document.getElementById(this.headerId);
                 const form = header.getElementsByTagName('form')[0];
                 form.style.display = 'none';
+            }
+        },
+        changeUserRedirect() {
+            if (this.headerId === "userHome") {
+                document.querySelector('.user a').href = 'http://localhost:8080/profile';
+                document.querySelector('.user-side a').href = 'http://localhost:8080/profile';
             }
         },
         headerScroll() {
