@@ -17,7 +17,7 @@ input, button{
 	overflow: hidden;
 	position: relative;
 	width: 900px;
-	height: 550px;
+	height: 600px;
 	background:var(--half-baked-900);
 	border-radius: 20px;
 	box-shadow: 0 19px 38px rgba(0, 0, 0, 0.415), 0 15px 12px rgba(0, 0, 0, 0.416);

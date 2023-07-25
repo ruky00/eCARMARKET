@@ -60,6 +60,10 @@
             loadCompanies() {
 
                 window.$.getJSON('http://localhost:8081/api/me/profile', (profile) => {
+                    if(profile.favCompany.length === 0) {
+                        this.$router.push('/form');
+                        return;
+                    }
                     this.searchStockSymbol(profile.favCompany);
                 });
             },
