@@ -75,13 +75,20 @@
                 const width = 950 - margin.left - margin.right;
                 this.height = 400 - margin.top - margin.bottom;
 
-                // Set uo the x and y scales
-                this.x = window.d3.scaleTime()
-                .range([0, width]);
+                // Set up the x and y scales
+                try {
+                    this.x = window.d3.scaleTime()
+                        .range([0, width]);
+                } catch (error) {
+                    console.log(error);
+                }
 
-                this.y = window.d3.scaleLinear()
-                    .range([this.height, 0]);
-                
+                try {
+                    this.y = window.d3.scaleLinear()
+                        .range([this.height, 0]);
+                } catch (error) {
+                    console.log(error);
+                }
                 
 
                 // Create the SVG element and append it to the chart container
