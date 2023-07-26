@@ -35,7 +35,7 @@
     padding: 15px;
 }
 
-.first-section h2 {
+.first-section h2, .second-section h2 {
     color: var(--corn-field-100)
 }
 
@@ -45,7 +45,7 @@
 
 .second-section {
     padding: 150px 50px 50px 50px;
-    display: flex;
+    display: none; /* flex */
     justify-content: center;
     gap: 50px;
     height: 46.5vw;

@@ -4,7 +4,7 @@
 			<div class="text">
 				We want to know you
 			</div>
-			<form action="#">
+			<form @submit.prevent="submitForm">
 				<div class="form-row">
 				<div class="input-data">
 					<input type="text" required v-model="role">
@@ -31,11 +31,15 @@
 					:disabled="isDisabled"></Multiselect>
 				</div>
 				<div class="input-data">
-					<input type="text" required v-model="recive">
-					<div class="underline"></div>
 					<label for="">Want to recieve overviews?</label>
+					<div class="radio-buttons">
+						<input type="radio" id="yes" value="yes" name="overviews" required v-model="recive">
+						<label for="yes">Yes</label>
+						<input type="radio" id="no" value="no" name="overviews" required v-model="recive">
+						<label for="no">No</label>
+					</div>
 				</div>
-				</div>
+			</div>
 			<div class="form-row submit-btn">
 				<div class="input-data">
 						<div class="inner"></div>
@@ -55,25 +59,74 @@
       },
       name:'ProfileFormComponent',
       data() {
-      return {
-        options: ['Tesla', 'Cupra', 'Ford','Volvo','MG'],
-        selectedTags: [],
-        maxTags:3,
-        isDisabled:false
-      }
-    },
-    computed: {
-    isMaxTagsReached() {
-      return this.selectedTags.length >= this.maxTags;
-      
-    }
-  },
-  watch: {
-    isMaxTagsReached(value) {
-      this.isDisabled = value;
-    }
-  }
-  }
+		return {
+			options: ['Tesla', 'Cupra', 'Ford','Volvo','MG'],
+			selectedTags: [],
+			maxTags:3,
+			isDisabled:false
+		}
+		},
+		computed: {
+			isMaxTagsReached() {
+				return this.selectedTags.length >= this.maxTags;
+			}
+		},
+		methods: {
+			async makePost(body) {
+				try{
+					const url = "http://localhost:8081/api/me/profile/";
+
+					const response = await fetch(url, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(body),
+					});
+
+					return response;
+				} catch (error) {
+					console.error('Error fetching data:', error);
+				}
+			},
+			submitForm() {
+				if (this.selectedTags.length < 3) {
+					alert("Please select 3 companies")
+					return 0;
+				}
+
+				const recive = this.recive === "yes" ? true : false;
+
+				const body = 
+				{
+					"rol" : this.rol,
+					"org" : this.org,
+					"favCompany" : [
+						this.selectedTags[0],
+						this.selectedTags[1],
+						this.selectedTags[2]
+					],
+					"allowOverview" : recive
+				}
+
+				this.makePost(body)
+					.then(() => {
+						// The fetch request is completed, and now we can redirect
+						this.$router.push('/userHome');
+					})
+					.catch((error) => {
+						console.error('Error making POST request:', error);
+					});
+				
+				return 0;
+			}
+		},
+		watch: {
+			isMaxTagsReached(value) {
+				this.isDisabled = value;
+			}
+		}
+	}
 </script>
 
 <style>

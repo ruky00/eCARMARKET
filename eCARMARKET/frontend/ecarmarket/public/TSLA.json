@@ -1,7 +1,6 @@
 {
     "id": 3,
-    "Monthly Time Series": null,
-    "Time Series (Daily)": {
+    "Monthly Time Series": {
         "2023-06-22T00:00:00.000+00:00": {
             "1. open": 131.68,
             "2. high": 132.96,
@@ -703,6 +702,7 @@
             "5. volume": 5375712
         }
     },
+    "Time Series (Daily)": null,
     "Weekly Time Series": null,
     "Meta Data": {
         "information": "Daily Prices (open, high, low, close) and Volumes",

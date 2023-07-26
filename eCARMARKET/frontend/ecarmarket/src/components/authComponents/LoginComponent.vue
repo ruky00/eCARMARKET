@@ -1,7 +1,7 @@
 <template>
 	<div class="cont">
 		<div class="form sign-in">
-			<form @submit="submitForm">
+			<form @submit="submitLogin">
 				<h2>Sign In</h2>
 				<label>
 					<span>Email Address</span>
@@ -35,24 +35,30 @@
 				</div>
 			</div>
 			<div class="form sign-up">
-				<h2>Sign Up</h2>
-				<label>
-					<span>Name</span>
-					<input type="text">
-				</label>
-				<label>
-					<span>Email</span>
-					<input type="email">
-				</label>
-				<label>
-					<span>Password</span>
-					<input type="password">
-				</label>
-				<label>
-					<span>Confirm Password</span>
-					<input type="password">
-				</label>
-				<button class="submit" type="submit">Sign Up Now</button>
+				<form @submit.prevent="submitRegister">
+					<h2>Sign Up</h2>
+					<label>
+						<span>Name</span>
+						<input type="text" v-model="registerName" required>
+					</label>
+					<label>
+						<span>Surname</span>
+						<input type="text" v-model="registerSurname" required>
+					</label>
+					<label>
+						<span>Email</span>
+						<input type="email" v-model="registerEmail" required>
+					</label>
+					<label>
+						<span>Password</span>
+						<input type="password" v-model="registerPassword" required>
+					</label>
+					<label>
+						<span>Confirm Password</span>
+						<input type="password" v-model="registerConfirmPassword" required>
+					</label>
+					<button class="submit" type="submit">Sign Up Now</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -86,7 +92,7 @@
 			toggleSignup() {
 				document.querySelector('.cont').classList.toggle('s-signup');
 			},
-			submitForm(event) {
+			submitLogin(event) {
 				event.preventDefault();	// Prevent form submission
 
 				// Create request payload
@@ -124,6 +130,63 @@
 				// Reset the form fileds
 				this.username = '';
 				this.password = '';
+
+				this.$router.push('/userHome');
+			},
+			submitRegister() {
+
+				if (this.registerPassword !== this.registerConfirmPassword) {
+					alert("Both passwords must be the same");
+					return;
+				}
+
+				// Create request payload
+				const payload = {
+					"name": this.registerName,
+					"surname": this.registerSurname,
+					"email": this.registerEmail,
+					"occupation": "Policymaker",
+					"permision": "true",
+					"encodedPassword": this.password,
+
+				};
+
+				// Make the POST request to the backend
+				fetch('http://localhost:8081/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(payload)
+				})
+					.then(response => {
+						// Handle the response from the backend
+						if (response.ok) {
+							return response.json();
+						} else {
+							throw new Error('Error' + response.statusText);
+						}
+					})
+					.then(data => {
+						// Handle the data reveived from the backend
+						console.log(data);
+						this.$router.push('/form');
+						// Redirect to a new page or perform other actions if needed
+					})
+					.catch(error => {
+						// Handle any error that ocurred
+						console.error('Error: ', error);
+					});
+
+				// Reset the form fileds
+				this.registerName = '';
+				this.registerSurname = '';
+				this.registerEmail = '';
+				this.occupation = '';
+				this.permision = '';
+				this.encodedPassword = '';
+
+				this.$router.push('/form');
 			}
 		},
 		mounted() {
