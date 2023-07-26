@@ -1,0 +1,18 @@
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+html {
+    font-family: var(--text);
+    background-color: linear-gradient(115deg, var(--half-baked-500) 10%, var(--half-baked-900) 90%);
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, var(--half-baked-500) 10%, var(--half-baked-900) 90%);
+}
+
+button:hover {
+    cursor: pointer;
+}

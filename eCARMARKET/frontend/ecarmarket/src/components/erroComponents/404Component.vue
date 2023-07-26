@@ -15,6 +15,8 @@
 </script>
 
 <style>
+@import "../../assets/css/variables.css";
+@import "../../assets/css/common.css";
     .container {
   display: flex;
   justify-content: center;

@@ -197,6 +197,8 @@
 </script>
   
 <style>
+	@import "../../assets/css/variables.css";
+	@import "../../assets/css/common.css";
 	@import '../../assets/css/authCSS/login.css';
 </style>
   

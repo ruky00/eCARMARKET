@@ -46,5 +46,7 @@
 </script>
 
 <style>
+@import "../../assets/css/variables.css";
+@import "../../assets/css/common.css";
     @import "../../assets/css/userCSS/userHomeComponent.css";
 </style>

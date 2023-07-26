@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  web:
+    image: ruky00/ecarmarket
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=update
+    depends_on:
+      - db
+    restart: on-failure
+  db:
+    image: oscarfonts/h2
+    container_name: db
+  front:
+    image: miguelangelc/frontend
+    ports:
+      - "8080:8080"
+    restart: on-failure

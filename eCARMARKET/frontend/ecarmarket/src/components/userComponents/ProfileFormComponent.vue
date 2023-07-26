@@ -130,6 +130,8 @@
 </script>
 
 <style>
+@import "../../assets/css/variables.css";
+@import "../../assets/css/common.css";
 @import '@vueform/multiselect/themes/default.css';
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @import '../../assets/css/userCSS/profileFormComponent.css';
