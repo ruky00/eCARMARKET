@@ -28,6 +28,11 @@ const routes =createRouter({
          component: () => import('../src/components/userComponents/UserHomeComponent')
       },
       {
+         path:'/confirm',
+         name:'confirm',
+         component: () => import('../src/components/authComponents/ConfirmEmailComponent')
+      },
+      {
          path:'/:pathMatch(.*)*',
          component: () => import('../src/components/erroComponents/404Component')
       },

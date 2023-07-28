@@ -120,18 +120,22 @@
 					.then(data => {
 						// Handle the data reveived from the backend
 						console.log('Response: ', data);
+
+						// Reset the form fileds
+						this.username = '';
+						this.password = '';
+						
 						// Redirect to a new page or perform other actions if needed
+						this.$router.push('/userHome');
 					})
 					.catch(error => {
 						// Handle any error that ocurred
-						console.error('Error: ', error);
+						alert("Error: " + error);
 					});
 
 				// Reset the form fileds
 				this.username = '';
 				this.password = '';
-
-				this.$router.push('/userHome');
 			},
 			submitRegister() {
 
@@ -172,11 +176,21 @@
 					.then(data => {
 						// Handle the data reveived from the backend
 						console.log(data);
+
+						// Reset the form fileds
+						this.registerName = '';
+						this.registerSurname = '';
+						this.registerEmail = '';
+						this.occupation = '';
+						this.permision = '';
+						this.encodedPassword = '';
+
 						// Redirect to a new page or perform other actions if needed
+						this.$router.push('/');
 					})
 					.catch(error => {
 						// Handle any error that ocurred
-						console.error('Error: ', error);
+						alert("Error: " + error);
 					});
 
 				// Reset the form fileds
@@ -186,8 +200,6 @@
 				this.occupation = '';
 				this.permision = '';
 				this.encodedPassword = '';
-
-				this.$router.push('/');
 			}
 		},
 		mounted() {
