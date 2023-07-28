@@ -147,9 +147,11 @@
 					"email": this.registerEmail,
 					"occupation": "Policymaker",
 					"permision": "true",
-					"encodedPassword": this.password,
+					"encodedPassword": this.registerPassword,
 
 				};
+
+				console.log(JSON.stringify(payload))
 
 				// Make the POST request to the backend
 				fetch('http://localhost:8081/api/register', {
@@ -170,7 +172,6 @@
 					.then(data => {
 						// Handle the data reveived from the backend
 						console.log(data);
-						this.$router.push('/form');
 						// Redirect to a new page or perform other actions if needed
 					})
 					.catch(error => {
@@ -186,7 +187,7 @@
 				this.permision = '';
 				this.encodedPassword = '';
 
-				this.$router.push('/form');
+				this.$router.push('/');
 			}
 		},
 		mounted() {

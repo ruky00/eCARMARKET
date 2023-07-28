@@ -31,6 +31,7 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:8080", methods = RequestMethod.POST)
 public class ClientRestController {
 
     @Autowired
@@ -78,7 +79,7 @@ public class ClientRestController {
         ConfirmationToken confirmationToken = new ConfirmationToken(token, LocalDateTime.now(),LocalDateTime.now().plusMinutes(15),client);
         confirmationTokenService.saveConfirmationToken(confirmationToken);
         //SEND EMAIL
-        String link = "http://localhost:8080/api/register/confirm?token="+token;
+        String link = "http://localhost:8081/api/register/confirm?token="+token;
         emailService.send(client.getEmail(), registrationService.buildEmail(client.getName(),link));
         URI location = fromCurrentRequest().path("/clients/{id}")
                 .buildAndExpand(client.getId()).toUri();

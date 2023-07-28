@@ -51,15 +51,13 @@
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
             script.async = true;
-            script.onload = () => {
-                this.searchStockSymbol(['Tesla', 'Volvo', 'Ford']);
-            };
-            document.head.appendChild(script);
+            this.searchStockSymbol(['Tesla', 'Volvo', 'Ford']);
         },
         methods: {
             loadCompanies() {
 
                 window.$.getJSON('http://localhost:8081/api/me/profile', (profile) => {
+                    console.log(profile)
                     if(profile.favCompany.length === 0) {
                         this.$router.push('/form');
                         return;

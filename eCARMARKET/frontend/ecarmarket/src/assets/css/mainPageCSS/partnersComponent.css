@@ -37,11 +37,14 @@ h2{
   }
   
   .card {
+    display: flex;
+    margin-left: 0;
+    justify-content: center;
     background: transparent;
     border-radius: 50px 0;
     cursor: default;
     height: 340px;
-    width: 340px;
+    width: 100%;
     transform-style: preserve-3d;
     transition: transform 0.4s ease 0s;
     padding: 0;
