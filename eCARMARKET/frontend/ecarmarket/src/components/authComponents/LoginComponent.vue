@@ -126,7 +126,7 @@
 						this.password = '';
 						
 						// Redirect to a new page or perform other actions if needed
-						this.$router.push('/userHome');
+						this.$router.push('/form');
 					})
 					.catch(error => {
 						// Handle any error that ocurred
@@ -186,7 +186,7 @@
 						this.encodedPassword = '';
 
 						// Redirect to a new page or perform other actions if needed
-						this.$router.push('/');
+						this.$router.push('/confirm');
 					})
 					.catch(error => {
 						// Handle any error that ocurred

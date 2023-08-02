@@ -50,8 +50,11 @@
         mounted() {
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
-            script.async = true;
-            this.searchStockSymbol(['Tesla', 'Volvo', 'Ford']);
+            script.onload = () => {
+                // D3 is loaded, call the searchStockSymbol method
+                this.searchStockSymbol(['Tesla', 'Volvo', 'Ford']);
+            };
+            document.head.appendChild(script);
         },
         methods: {
             loadCompanies() {

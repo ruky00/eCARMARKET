@@ -34,10 +34,13 @@
         mounted() {
             const script = document.createElement('script');
             script.src = 'https://d3js.org/d3.v7.min.js';
-            script.async = true;
+            script.onload = () => {
+                // D3 is loaded, call the searchStockSymbol method
+                this.checkQuery();
+            };
             document.head.appendChild(script);
 
-            this.checkQuery();
+            
         },
         methods: {
             checkQuery() {
